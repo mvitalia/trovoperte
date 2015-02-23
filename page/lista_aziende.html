@@ -21,10 +21,9 @@
     <!-- categorie -->
     <div data-role="page" id="page_lista_aziende">
         <div data-role="header" data-position="fixed">
-            <img src="../img/logo_trovoperte.png" class="logo_trovo" >
-			
-            <a href="#" data-rel="back" data-icon="back" data-icon="back" >&nbsp;</a>
-            
+        	<a href="#" data-rel="back" data-icon="back" data-position="inline" class="ui-btn-left" >&nbsp;</a>
+            <a href="../index.html" data-role="none" class="link_index" data-ajax="false"><img src="../img/logo_trovoperte.png" class="logo_trovo" ></a>
+			            
             <div class="ui-btn-right">
                 
                 <a href="#settings" class="btn_settings" data-role="button" data-icon="gear">&nbsp;</a>
@@ -93,7 +92,7 @@
 $("#page_lista_aziende").on("pageshow", function(event){
     var id_categoria = getParameterByName("id_categoria");
 	
-	$.getJSON("http://www.mvitalia.com/dimostrativi/patrizia/portaleapp/admin/get_json_data.asp", function(info_categ){
+	$.getJSON("http://www.mvitalia.com/dimostrativi/patrizia/portaleapp/admin/get_json_data.asp?id_categoria=" + id_categoria , function(info_categ){
 	
 		//string to put HTML in
 		//set up string for adding <li/>

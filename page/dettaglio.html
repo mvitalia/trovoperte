@@ -21,9 +21,9 @@
     <!-- categorie -->
     <div data-role="page" id="page_dettaglio">
         <div data-role="header" data-position="fixed">
-            <img src="../img/logo_trovoperte.png" class="logo_trovo" >
+            <a href="#" data-rel="back" data-icon="back" data-position="inline" class="ui-btn-left" >&nbsp;</a>
+            <a href="../index.html" data-role="none" class="link_index" data-ajax="false"><img src="../img/logo_trovoperte.png" class="logo_trovo" ></a>
 			
-            <a href="#" data-rel="back" data-icon="back" data-icon="back" >&nbsp;</a>
             
             <div class="ui-btn-right">
                 
@@ -188,7 +188,7 @@
 $("#page_dettaglio").on("pageshow", function(event){
     var id_azienda = getParameterByName("id_azienda");
 	
-	$.getJSON("http://www.mvitalia.com/dimostrativi/patrizia/portaleapp/admin/get_json_data.asp", function(info_dettaglio){
+	$.getJSON("http://www.mvitalia.com/dimostrativi/patrizia/portaleapp/admin/get_json_data.asp?id_azienda=" + id_azienda, function(info_dettaglio){
 	
 		var scheda = "";
 		var footer_dettaglio = "";

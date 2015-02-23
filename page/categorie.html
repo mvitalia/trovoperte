@@ -21,9 +21,11 @@
     <!-- categorie -->
     <div data-role="page" id="categorie">
         <div data-role="header" data-position="fixed">
-            <img src="../img/logo_trovoperte.png" class="logo_trovo" >
+            <a href="#" data-rel="back" data-icon="back" data-position="inline" class="ui-btn-left" >&nbsp;</a>
+            
+            <a href="../index.html" data-role="none" class="link_index" data-ajax="false" data-position="fixed"><img src="../img/logo_trovoperte.png" class="logo_trovo" ></a>
 			
-            <a href="#" data-rel="back" data-icon="back" data-icon="back" >&nbsp;</a>
+            
             
             <div class="ui-btn-right">
                 
@@ -93,7 +95,7 @@
 $("#categorie").on("pageshow", function(event){
     var id_macrocategoria = getParameterByName("id_macrocategoria");
 	
-	$.getJSON("http://www.mvitalia.com/dimostrativi/patrizia/portaleapp/admin/get_json_data.asp", function(info_categ){
+	$.getJSON("http://www.mvitalia.com/dimostrativi/patrizia/portaleapp/admin/get_json_data.asp?id_macrocategoria=" + id_macrocategoria, function(info_categ){
 	
 		//string to put HTML in
 		//set up string for adding <li/>

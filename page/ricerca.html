@@ -1,0 +1,121 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" href="../css/default_theme.min.css">
+<link rel="stylesheet" href="../css/jquery.mobile.icons.min.css">
+<link rel="stylesheet" href="../css/style.css">
+
+
+
+<script src="../js/jquery-1.11.2.min.js"></script>
+<script src="../js/jquery.mobile-1.4.5.min.js"></script>
+<script src="../js/standard.js"></script>
+
+
+</head>
+<body>
+    <!-- ricerca -->
+	<div id="page_ricerca" data-role="page">
+        <div data-role="header">
+            <a href="#" data-rel="back" data-icon="back" >&nbsp;</a>
+            <h1>Ricerca</h1>
+            
+            <form role="form" class="box_search">
+                <div class="form-group">
+                  <input type="search" name="search" class="form-control input-lg" data-mini="true" id="search" placeholder="Cerca..."  />
+                </div>
+            </form>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview" id="results" data-divider-theme="a" data-inset="true">
+                <li data-role="list-divider" data-theme="b" role="heading">Elenco aziende trovate</li>
+            </ul>
+        </div>
+    </div>
+
+	
+
+
+	<!-- setting -->
+	<div id="settings" data-role="page">
+            <div data-role="header">
+                <a href="#" data-rel="back" data-icon="back">&nbsp;</a>
+                <h1>Impostazioni</h1>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview">
+                    <li><a href="#" class="small">Small</a></li>    
+                    <li><a href="#" class="med">Medium</a></li>    
+                    <li><a href="#" class="large">Large</a></li>    
+                </ul>
+            </div>
+    </div>
+    
+    
+    <!-- info -->
+    <div data-role="page" data-dialog="true" id="page_info">
+      <div data-role="header">
+        <h1>Info</h1>
+      </div>
+    
+      <div data-role="main" class="ui-content">
+        Maurizio Voglino<br>
+        <a href="mailto:info@mvitalia.com">info@mvitalia.com</a><br>
+        <a href="http://www.mvitalia.com/" target="_blank">www.mvitalia.com</a></p>
+        
+      </div>
+    
+      <div data-role="footer">
+        <h1></h1>
+      </div>
+    </div> 
+    
+</div>
+
+
+<script>
+
+$("#page_ricerca").on("pageshow", function(event){
+    //append list to ul
+	$('#search').keyup(function(){
+		var searchField = $('#search').val();
+		var regex = new RegExp(searchField, "i");
+		var output = '';
+		var count = 1;
+		$.getJSON("http://www.mvitalia.com/dimostrativi/patrizia/portaleapp/admin/get_json_data.asp", function(info){
+			$.each(info, function (key, val) {
+				if ((val.ragione_sociale.search(regex) != -1) || (val.servizi.search(regex) != -1) || (val.macrocategoria.search(regex) != -1) || (val.categoria.search(regex) != -1) || (val.paese.search(regex) != -1)) {
+				 
+				  output += '<li class="ui-li-has-thumb ui-last-child"><a href="dettaglio.html?id_azienda=' + val.id + '" id="' + val.id + '" class="azienda-go ui-btn ui-btn-icon-right ui-icon-carat-r" data-ajax="false">';
+	
+				  if (name.foto_principale != "" && name.foto_princinpale != "undefined" ){
+					output += '<img src="http://www.mvitalia.com/dimostrativi/patrizia/portaleapp%5Cpublic%5Cupload_gallery%5Cimmagini%5C' + val.foto_principale + '" class="ui-li-thumb"/>';
+				  }
+				  output += '<h3 class="ui-li-heading">' + val.ragione_sociale + '</h3><p class="ui-li-desc">' + val.paese + '</p></a></li>';
+				  
+				  
+				
+				  count++;
+				}
+			  });
+			  //$('#results').html(output);
+			  $("#results").html(output).promise().done(function () {
+			
+			 });
+			  
+			  $(this).listview("refresh");
+	   	  });
+		  
+		  
+	   }); 
+})   
+
+
+
+</script>
+</body>
+</html>
