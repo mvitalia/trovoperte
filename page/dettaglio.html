@@ -50,16 +50,10 @@
                   <div data-role="main" class="ui-content">
                     <!-- Swiper -->
                     <div id="scheda_gallery" data-divider-theme="a" data-inset="true">
-                        <div class="swiper-container">
-                            <div class="swiper-wrapper" id="lista_immagini">
-                                
-                            </div>
-                            <!-- Add Pagination -->
-                            <div class="swiper-pagination swiper-pagination-white"></div>
-                            <!-- Add Arrows -->
-                            <div class="swiper-button-next swiper-button-white"></div>
-                            <div class="swiper-button-prev swiper-button-white"></div>
-                        </div>                	
+                        <div id="lista_immagini" class="liste_foto">
+                            
+                        </div>
+                           
                     </div>
                     
                   </div>      
@@ -79,15 +73,8 @@
                 
                   <div data-role="main" class="ui-content">
                     <div id="scheda_news" data-divider-theme="a" data-inset="true">
-                    	<div class="swiper-container">
-                            <div class="swiper-wrapper" id="lista_news">
-                                
-                            </div>
-                            <!-- Add Pagination -->
-                            <div class="swiper-pagination swiper-pagination-white"></div>
-                            <!-- Add Arrows -->
-                            <div class="swiper-button-next swiper-button-white"></div>
-                            <div class="swiper-button-prev swiper-button-white"></div>
+                    	<div id="lista_news" class="liste_foto">
+
                         </div>                
                     </div>
                     
@@ -109,15 +96,8 @@
             
                   <div data-role="main" class="ui-content">
                     <div id="scheda_promo" data-divider-theme="a" data-inset="true">
-                     	<div class="swiper-container">
-                            <div class="swiper-wrapper" id="lista_promo">
-                                
-                            </div>
-                            <!-- Add Pagination -->
-                            <div class="swiper-pagination swiper-pagination-white"></div>
-                            <!-- Add Arrows -->
-                            <div class="swiper-button-next swiper-button-white"></div>
-                            <div class="swiper-button-prev swiper-button-white"></div>
+                     	<div id="lista_promo" class="liste_foto">
+                         
                         </div>               
                     </div>
                   </div>
@@ -212,39 +192,42 @@ $("#page_dettaglio").on("pageshow", function(event){
 					
 					// GALLERY
 					if (foto.tipologia == 'gallery') {
-						scheda_gallery += "<div class='swiper-slide' style='background-image:url(http://www.mvitalia.com/dimostrativi/patrizia/portaleapp%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + ")'></div>";
+						scheda_gallery += "<img src='http://www.mvitalia.com/dimostrativi/patrizia/portaleapp%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' class='img_azienda'>";
 						count_gallery += 1;
 					}
 			
-					if (count_gallery == 0) {
-						scheda_gallery += "Nessuna immagine da visualizzare";
-					}
+					
 					
 					if (name.tipo_contratto != 'intermedio') {
 							
 						// NEWS
 						if (foto.tipologia == 'news') {
-							scheda_news += "<div class='swiper-slide' style='background-image:url(http://www.mvitalia.com/dimostrativi/patrizia/portaleapp%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + ")'></div>";
+							scheda_news += "<img src='http://www.mvitalia.com/dimostrativi/patrizia/portaleapp%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' class='img_azienda'>";
 							count_news += 1;
 						}
-				
-						if (count_news == 0) {
-							scheda_news += "Nessuna immagine da visualizzare";
-						}
-						
+										
 						
 						// PROMO
 						if (foto.tipologia == 'promo') {
-							scheda_promo += "<div class='swiper-slide' style='background-image:url(http://www.mvitalia.com/dimostrativi/patrizia/portaleapp%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + ")'></div>";
+							scheda_promo += "<img src='http://www.mvitalia.com/dimostrativi/patrizia/portaleapp%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' class='img_azienda'>";
 							count_promo += 1;
 						}
 				
-						if (count_promo == 0) {
-							scheda_promo += "Nessuna immagine da visualizzare";
-						}
+						
 					}
 					
 				});
+				
+				
+				if (count_gallery == 0) {
+					scheda_gallery += "Nessuna immagine da visualizzare";
+				}
+				if (count_news == 0) {
+					scheda_news += "Nessuna immagine da visualizzare";
+				}
+				if (count_promo == 0) {
+					scheda_promo += "Nessuna immagine da visualizzare";
+				}
 				
 				scheda += "<div class='info_azienda'><h1>" + name.ragione_sociale + "</h1>"; // RAGIONE SOCIALE
 				scheda += "<p>" + name.indirizzo + " " + name.num + "</p><p>" + name.cap + " " + name.paese + " " + name.provincia + "</div>"; // INDIRIZZO
@@ -285,10 +268,10 @@ $("#page_dettaglio").on("pageshow", function(event){
 		});
 		//append list to ul
 		var htmlObject = $(scheda);
-		$("#footer_dettaglio").empty();
 		$("#footer_dettaglio").append(footer_dettaglio).promise().done(function () {});
-		$("#scheda_azienda").empty();
 		$("#scheda_azienda").append(htmlObject).promise().done(function () {});
+		
+		
 		$("#lista_immagini").append(scheda_gallery).promise().done(function () {});
 		
 		if (name.tipo_contratto != 'intermedio') {

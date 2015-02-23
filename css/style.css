@@ -36,12 +36,15 @@ html, body {
 #scheda_azienda h3 {width:100%; border-bottom:1px solid silver}
 
 .img_gallery {width:100%}
+.img_azienda {width:150px;height:auto;}
+
+.liste_foto img {padding-right:20px;padding-bottom:20px}
 /* fine scheda azienda */
 
 
 
 /* gallery - promo - news */
-#azienda_gallery,#azienda_promo,#azienda_news {width:100%;height:100%;}
+#azienda_gallery,#azienda_promo,#azienda_news {min-width:800px;min-height:600px;}
  /* fine gallery - promo - news */
 
 
