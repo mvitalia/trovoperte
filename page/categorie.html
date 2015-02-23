@@ -1,0 +1,129 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" href="../css/default_theme.min.css">
+<link rel="stylesheet" href="../css/jquery.mobile.icons.min.css">
+<link rel="stylesheet" href="../css/style.css">
+
+
+
+<script src="../js/jquery-1.11.2.min.js"></script>
+<script src="../js/jquery.mobile-1.4.5.min.js"></script>
+<script src="../js/standard.js"></script>
+
+
+</head>
+<body>
+    <!-- categorie -->
+    <div data-role="page" id="categorie">
+        <div data-role="header" data-position="fixed">
+            <img src="../img/logo_trovoperte.png" class="logo_trovo" >
+			
+            <a href="#" data-rel="back" data-icon="back" data-icon="back" >&nbsp;</a>
+            
+            <div class="ui-btn-right">
+                
+                <a href="#settings" class="btn_settings" data-role="button" data-icon="gear">&nbsp;</a>
+            </div>
+            
+        </div>
+        
+        <div role="main" id="" class="ui-content">
+        	<div data-role="content">
+                <ul data-role="listview" id="lista_categorie" data-divider-theme="a" data-inset="true">
+                	<li data-role="list-divider" data-theme="b" role="heading">Seleziona tipo attività</li>
+        		</ul>
+            </div>
+        
+        </div>
+        
+      
+    </div> 
+        <div data-role="footer" data-position="fixed">
+            <a href="#page_info" data-icon="info" class="btn_info">info</a>    	
+        </div>
+    </div><!--page-->
+
+	
+
+
+	<!-- setting -->
+	<div id="settings" data-role="page">
+            <div data-role="header">
+                <a href="#" data-rel="back" data-icon="back" data-icon="back" >&nbsp;</a>
+                <h1>Impostazioni</h1>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview">
+                    <li><a href="#" class="small">Small</a></li>    
+                    <li><a href="#" class="med">Medium</a></li>    
+                    <li><a href="#" class="large">Large</a></li>    
+                </ul>
+            </div>
+    </div>
+    
+    
+    <!-- info -->
+    <div data-role="page" data-dialog="true" id="page_info">
+      <div data-role="header">
+        <h1>Info</h1>
+      </div>
+    
+      <div data-role="main" class="ui-content">
+        Maurizio Voglino<br>
+        <a href="mailto:info@mvitalia.com">info@mvitalia.com</a><br>
+        <a href="http://www.mvitalia.com/" target="_blank">www.mvitalia.com</a></p>
+        
+      </div>
+    
+      <div data-role="footer">
+        <h1></h1>
+      </div>
+    </div> 
+    
+</div>
+
+
+<script>
+
+$("#categorie").on("pageshow", function(event){
+    var id_macrocategoria = getParameterByName("id_macrocategoria");
+	
+	$.getJSON("http://www.mvitalia.com/dimostrativi/patrizia/portaleapp/admin/get_json_data.asp", function(info_categ){
+	
+		//string to put HTML in
+		//set up string for adding <li/>
+		var li = "";
+		//container for $li to be added
+		$.each(info_categ, function (i, name) {
+			//add the <li> to "li" variable
+			//note the use of += in the variable
+			//meaning I'm adding to the existing data. not replacing it.
+			//store index value in array as id of the <a> tag
+			if ((name.id_macrocategoria == id_macrocategoria)) {
+				li += '<li><a href="lista_aziende.html?id_categoria=' + name.id_categoria + '" id="' + name.id_categoria + '" class="categ-go" data-ajax="false">';
+				if (name.icona_categoria != ""){
+					li += '<img src="http://www.mvitalia.com/dimostrativi/patrizia/portaleapp%5Cpublic%5Cupload_gallery%5Cimmagini%5C' + name.icona_categoria + '" class="ui-li-thumb"/>';
+				}
+				li += '<h3 class="ui-li-heading">' + name.categoria + '</h3></a></li>';
+				
+			}
+		});
+		//append list to ul
+		$("#lista_categorie").append(li).promise().done(function () {
+			
+			//refresh list to enhance its styling.
+			$(this).listview("refresh");
+		});
+	});
+})   
+
+
+
+</script>
+</body>
+</html>
