@@ -255,7 +255,7 @@ $("#page_dettaglio").on("pageshow", function(event){
 				if (name.tipo_contratto != 'base'){
 					scheda +="<div class='box_extra'><a id=" + name.id + " href='#azienda_gallery' data-icon='camera' data-rel='popup' data-position-to='window' data-transition='pop' class='azienda_gallery ui-btn ui-shadow ui-btn-inline ui-icon-camera ui-btn-icon-left' >Gallery</a>";
 	
-					if (name.tipo_contratto != 'intermedio') {
+					if (name.tipo_contratto == 'avanzato') {
 						scheda +="<a id=" + name.id + " href='#azienda_news' data-icon='calendar' data-rel='popup' data-position-to='window' data-transition='pop' class='azienda_news ui-btn ui-shadow ui-btn-inline ui-icon-calendar ui-btn-icon-left'>News</a>";
 						scheda +="<a id=" + name.id + " href='#azienda_promo' data-icon='heart' class='azienda_promo ui-btn ui-shadow ui-btn-inline ui-icon-heart ui-btn-icon-left' data-rel='popup' data-position-to='window' data-transition='pop'>Promo</a>";
 												
@@ -278,30 +278,29 @@ $("#page_dettaglio").on("pageshow", function(event){
 				//<li class='ui-block-a' style="float:left;width:25%"><a href="#page_info" data-icon="info" data-iconpos="left" class="ui-state-persist"></a></li>
 				//footer_dettaglio = "<li class='ui-block-a' style='float:left;width:25%'><a href='page_info' data-icon='info' data-role='button' class='ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-info ui-btn-icon-left'>Info</a></li>";
 				
-				
-				footer_dettaglio += "<li class='ui-block-a' style='float:left;width:25%'><a href='http://" + name.web + "' rel='external' data-icon='navigation' data-role='button' class='btn_web ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-navigation ui-btn-icon-left'>Web</a></li>";
-				footer_dettaglio += "<li class='ui-block-b '><a href='mailto:" + name.mail + "' data-icon='mail' data-role='button' class='btn_mail ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-mail ui-btn-icon-left'>E-mail</a></li>";
-				footer_dettaglio += "<li class='ui-block-c '><a href='tel:" + name.tel + "' data-icon='phone' data-role='button'  class='btn_tel ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-phone ui-btn-icon-left'>Tel.</a></li>";
-				footer_dettaglio += "<li class='ui-block-d '><a href='tel:" + name.fax + "' data-role='button' class='btn_fax ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-btn-icon-left'>fax</a></li>"; // RIFERIMENTI
+				if (name.tipo_contratto != 'base'){
+					footer_dettaglio += "<li class='ui-block-a' style='float:left;width:25%'><a href='http://" + name.web + "' rel='external' data-icon='navigation' data-role='button' class='btn_web ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-navigation ui-btn-icon-left'>Web</a></li>";
+					footer_dettaglio += "<li class='ui-block-b '><a href='mailto:" + name.mail + "' data-icon='mail' data-role='button' class='btn_mail ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-mail ui-btn-icon-left'>E-mail</a></li>";
+					footer_dettaglio += "<li class='ui-block-c '><a href='tel:" + name.tel + "' data-icon='phone' data-role='button'  class='btn_tel ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-phone ui-btn-icon-left'>Tel.</a></li>";
+					footer_dettaglio += "<li class='ui-block-d '><a href='tel:" + name.fax + "' data-role='button' class='btn_fax ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-btn-icon-left'>fax</a></li>"; // RIFERIMENTI
 				 
-				
+				}
 				
 			}
 		});
 		//append list to ul
 		var htmlObject = $(scheda);
-		alert(name.tipo_contratto);
-		if (name.tipo_contratto != 'base'){
-			$("#footer_dettaglio").append(footer_dettaglio).promise().done(function () {});
-		}
+		
+		$("#footer_dettaglio").append(footer_dettaglio).promise().done(function () {});
+		
 		$("#scheda_azienda").append(htmlObject).promise().done(function () {});
 		
 		
 		$("#lista_immagini").html(scheda_gallery).promise().done(function () {});
-		if (name.tipo_contratto == 'avanzato') {
-			$("#lista_promo").append(scheda_promo).promise().done(function () {});
-			$("#lista_news").append(scheda_news).promise().done(function () {});
-		}
+		
+		$("#lista_promo").append(scheda_promo).promise().done(function () {});
+		$("#lista_news").append(scheda_news).promise().done(function () {});
+		
 	});
 })   
 
