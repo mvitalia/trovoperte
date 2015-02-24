@@ -116,7 +116,7 @@
 $("#page_lista_aziende").on("pageshow", function(event){
     var id_categoria = getParameterByName("id_categoria");
 	
-	$.getJSON("http://www.mvitalia.com/dimostrativi/patrizia/portaleapp/admin/get_json_data.asp?id_categoria=" + id_categoria , function(info_categ){
+	$.getJSON("http://www.trovoperte.com/admin/get_json_data.asp?id_categoria=" + id_categoria , function(info_categ){
 	
 		//string to put HTML in
 		//set up string for adding <li/>
@@ -130,7 +130,7 @@ $("#page_lista_aziende").on("pageshow", function(event){
 			if ((name.id_categoria == id_categoria)) {
 				li += '<li><a href="dettaglio.html?id_azienda=' + name.id + '" id="' + name.id + '" class="azienda-go" data-ajax="false">';
 				if (name.foto_principale != ""){
-					li += '<img src="http://www.mvitalia.com/dimostrativi/patrizia/portaleapp%5Cpublic%5Cupload_gallery%5Cimmagini%5C' + name.foto_principale + '" class="ui-li-thumb"/>';
+					li += '<img src="http://www.trovoperte.com%5Cpublic%5Cupload_gallery%5Cimmagini%5C' + name.foto_principale + '" class="ui-li-thumb"/>';
 				}
 				li += '<h3 class="ui-li-heading">' + name.ragione_sociale + '</h3><p class="ui-li-desc">' + name.paese + '</p></a></li>';
 				

@@ -153,14 +153,14 @@ $("#page_ricerca").on("pageshow", function(event){
 		var regex = new RegExp(searchField, "i");
 		var output = '';
 		var count = 1;
-		$.getJSON("http://www.mvitalia.com/dimostrativi/patrizia/portaleapp/admin/get_json_data.asp", function(info){
+		$.getJSON("http://www.trovoperte.com/admin/get_json_data.asp", function(info){
 			$.each(info, function (key, val) {
 				if ((val.ragione_sociale.search(regex) != -1) || (val.servizi.search(regex) != -1) || (val.macrocategoria.search(regex) != -1) || (val.categoria.search(regex) != -1) || (val.paese.search(regex) != -1)) {
 				 
 				  output += '<li class="ui-li-has-thumb ui-last-child"><a href="dettaglio.html?id_azienda=' + val.id + '" id="' + val.id + '" class="azienda-go ui-btn ui-btn-icon-right ui-icon-carat-r" data-ajax="false">';
 	
 				  if (name.foto_principale != "" && name.foto_princinpale != "undefined" ){
-					output += '<img src="http://www.mvitalia.com/dimostrativi/patrizia/portaleapp%5Cpublic%5Cupload_gallery%5Cimmagini%5C' + val.foto_principale + '" class="ui-li-thumb"/>';
+					output += '<img src="http://www.trovoperte.com%5Cpublic%5Cupload_gallery%5Cimmagini%5C' + val.foto_principale + '" class="ui-li-thumb"/>';
 				  }
 				  output += '<h3 class="ui-li-heading">' + val.ragione_sociale + '</h3><p class="ui-li-desc">' + val.paese + '</p></a></li>';
 				  

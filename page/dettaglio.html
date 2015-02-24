@@ -167,8 +167,8 @@
          <div data-role="footer" data-position="fixed">
             <div data-role="navbar" class="ui-navbar">
                 <ul id="footer_dettaglio" class="ui-grid-c">
-                	<!--<li class='ui-block-a' style="float:left;width:25%"><a href="#page_info" data-icon="info" data-iconpos="left" class="ui-state-persist"></a></li>-->
-                    <span class="testo_finto">testo finto</span>
+                	
+                    <li><span class="testo_finto">testo finto</span></li>
 				</ul>
             </div>
         </div>
@@ -183,7 +183,7 @@
 $("#page_dettaglio").on("pageshow", function(event){
     var id_azienda = getParameterByName("id_azienda");
 	
-	$.getJSON("http://www.mvitalia.com/dimostrativi/patrizia/portaleapp/admin/get_json_data.asp?id_azienda=" + id_azienda, function(info_dettaglio){
+	$.getJSON("http://www.trovoperte.com/admin/get_json_data.asp?id_azienda=" + id_azienda, function(info_dettaglio){
 	
 		var scheda = "";
 		var footer_dettaglio = "";
@@ -205,14 +205,14 @@ $("#page_dettaglio").on("pageshow", function(event){
 				// IMMAGINE PRINCIPALE
 				$.each(name.foto, function (i, foto) {
 					if (foto.tipologia == 'principale') {
-						scheda += "<img src='http://www.mvitalia.com/dimostrativi/patrizia/portaleapp%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' class='logo_azienda' >";
+						scheda += "<img src='http://www.trovoperte.com%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' class='logo_azienda' >";
 					}
 					
 					// GALLERY
 					if (foto.tipologia == 'gallery') {
-						scheda_gallery += "<a href='myPopup_" + count_gallery + "' data-rel='popup' data-position-to='window' data-rel='popup' data-position-to='window'><img src='http://www.mvitalia.com/dimostrativi/patrizia/portaleapp%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' class='img_azienda'></a>";
+						scheda_gallery += "<a href='myPopup_" + count_gallery + "' data-rel='popup' data-position-to='window' data-rel='popup' data-position-to='window'><img src='http://www.trovoperte.com%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' class='img_azienda'></a>";
 						
-						//<div data-role='popup' id='myPopup_" + count_gallery + "'><img src='http://www.mvitalia.com/dimostrativi/patrizia/portaleapp%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' style='width:800px;height:400px;'></div>
+						//<div data-role='popup' id='myPopup_" + count_gallery + "'><img src='http://www.trovoperte.com%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' style='width:800px;height:400px;'></div>
 						count_gallery += 1;
 					}
 			
@@ -222,14 +222,14 @@ $("#page_dettaglio").on("pageshow", function(event){
 							
 						// NEWS
 						if (foto.tipologia == 'news') {
-							scheda_news += "<img src='http://www.mvitalia.com/dimostrativi/patrizia/portaleapp%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' class='img_azienda'>";
+							scheda_news += "<img src='http://www.trovoperte.com%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' class='img_azienda'>";
 							count_news += 1;
 						}
 										
 						
 						// PROMO
 						if (foto.tipologia == 'promo') {
-							scheda_promo += "<img src='http://www.mvitalia.com/dimostrativi/patrizia/portaleapp%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' class='img_azienda'>";
+							scheda_promo += "<img src='http://www.trovoperte.com%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' class='img_azienda'>";
 							count_promo += 1;
 						}
 				
@@ -277,23 +277,28 @@ $("#page_dettaglio").on("pageshow", function(event){
 				
 				//<li class='ui-block-a' style="float:left;width:25%"><a href="#page_info" data-icon="info" data-iconpos="left" class="ui-state-persist"></a></li>
 				//footer_dettaglio = "<li class='ui-block-a' style='float:left;width:25%'><a href='page_info' data-icon='info' data-role='button' class='ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-info ui-btn-icon-left'>Info</a></li>";
+				
+				
 				footer_dettaglio += "<li class='ui-block-a' style='float:left;width:25%'><a href='http://" + name.web + "' rel='external' data-icon='navigation' data-role='button' class='btn_web ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-navigation ui-btn-icon-left'>Web</a></li>";
 				footer_dettaglio += "<li class='ui-block-b '><a href='mailto:" + name.mail + "' data-icon='mail' data-role='button' class='btn_mail ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-mail ui-btn-icon-left'>E-mail</a></li>";
 				footer_dettaglio += "<li class='ui-block-c '><a href='tel:" + name.tel + "' data-icon='phone' data-role='button'  class='btn_tel ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-phone ui-btn-icon-left'>Tel.</a></li>";
 				footer_dettaglio += "<li class='ui-block-d '><a href='tel:" + name.fax + "' data-role='button' class='btn_fax ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-btn-icon-left'>fax</a></li>"; // RIFERIMENTI
-				
+				 
 				
 				
 			}
 		});
 		//append list to ul
 		var htmlObject = $(scheda);
-		$("#footer_dettaglio").append(footer_dettaglio).promise().done(function () {});
+		alert(name.tipo_contratto);
+		if (name.tipo_contratto != 'base'){
+			$("#footer_dettaglio").append(footer_dettaglio).promise().done(function () {});
+		}
 		$("#scheda_azienda").append(htmlObject).promise().done(function () {});
 		
 		
 		$("#lista_immagini").html(scheda_gallery).promise().done(function () {});
-		if (name.tipo_contratto != 'intermedio') {
+		if (name.tipo_contratto == 'avanzato') {
 			$("#lista_promo").append(scheda_promo).promise().done(function () {});
 			$("#lista_news").append(scheda_news).promise().done(function () {});
 		}
