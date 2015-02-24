@@ -5,7 +5,7 @@ html, body {
 	margin:0
 }
 .link_index {position:relative !important;top:0 !important;left:auto !important}
-.logo_trovo {width:46%; max-height:50px; max-width:312px;padding-top:8px}
+.logo_trovo {width:46%; max-height:50px; max-width:312px;padding-top:8px; min-height:29px}
 .ui-header  {text-align:center}
 .txtwrapper{
     font-size: 15px;
@@ -56,15 +56,15 @@ html, body {
 
 
 /* colori pulsanti */
-.box_extra .azienda_gallery { background-color:#F00 !important; color:#fff !important; text-shadow:none !important}
-.box_extra .azienda_news { background-color:#090 !important; color:#fff !important; text-shadow:none !important}
-.box_extra .azienda_promo { background-color:#F60 !important; color:#fff !important; text-shadow:none !important}
+.box_extra .azienda_gallery { background-color:#db1d27 !important; color:#fff !important; text-shadow:none !important}
+.box_extra .azienda_news { background-color:#089a47 !important; color:#fff !important; text-shadow:none !important}
+.box_extra .azienda_promo { background-color:#f8931f !important; color:#fff !important; text-shadow:none !important}
 
 
-.btn_web {background-color:#06F !important; color:#fff !important; text-shadow:none !important}
-.btn_mail {background-color:#0C3 !important; color:#fff !important; text-shadow:none !important}
-.btn_tel {background-color:#F60 !important; color:#fff !important; text-shadow:none !important}
-.btn_fax {background-color:#F39 !important; color:#fff !important; text-shadow:none !important}
+.btn_web {background-color:#2692c0 !important; color:#fff !important; text-shadow:none !important}
+.btn_mail {background-color:#76bf43 !important; color:#fff !important; text-shadow:none !important}
+.btn_tel {background-color:#faa517 !important; color:#fff !important; text-shadow:none !important}
+.btn_fax {background-color:#e85970 !important; color:#fff !important; text-shadow:none !important}
 
 .btn_info {left:0.4em}
 
