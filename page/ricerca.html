@@ -22,8 +22,67 @@
 
     <!-- ricerca -->
 	<div id="page_ricerca" data-role="page">
-        <div data-role="header">
-            <a href="#" data-rel="back" data-icon="back" >&nbsp;</a>
+        <!-- pannello laterale -->
+        <div data-role="panel" id="myPanel" data-display="overlay" data-position="right" style="top:91px !important"> 
+            <h2></h2>
+            
+            <a href="../index.html" class="btn_search ui-btn ui-shadow ui-btn-inline ui-icon-home ui-btn-icon-left" data-role="button" data-icon="home" data-ajax="false" >Home</a>
+            <a href="ricerca.html" class="btn_search ui-btn ui-shadow ui-btn-inline ui-icon-search ui-btn-icon-left" data-role="button" data-icon="search"  data-ajax="false" >Cerca</a>
+
+
+			<a href='#settings' data-icon='gear' data-rel='popup' data-position-to='window' data-transition='pop' class='btn_search ui-btn ui-shadow ui-btn-inline ui-icon-gear ui-btn-icon-left'>Impostazioni</a>
+            <!-- setting -->
+            <div id="settings" data-role="popup">
+                <div data-role="header">
+                    <a href="#" data-iconpos="notext" data-mini="true" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-delete ui-mini ui-btn-icon-notext ui-btn-right" data-rel="back" data-icon="delete">&nbsp;</a>
+                    
+                    
+                    <h1>Impostazioni</h1>
+                </div>
+                <div data-role="content">
+                    <ul data-role="listview" style="margin:0 !important">
+                        <li><a href="#" class="small">Testo piccolo</a></li>    
+                        <li><a href="#" class="med">Testo medio</a></li>    
+                        <li><a href="#" class="large">Testo grande</a></li>    
+                    </ul>
+                </div>
+            </div>
+            
+            
+            
+			<a href='#page_info' data-icon='info' data-rel='popup' data-position-to='window' data-transition='pop' class='btn_search ui-btn ui-shadow ui-btn-inline ui-icon-info ui-btn-icon-left'>Info</a>
+              
+            <!-- info -->
+            <div data-role="popup" id="page_info">
+              <div data-role="header">
+              	 <a href="#" data-iconpos="notext" data-mini="true" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-delete ui-mini ui-btn-icon-notext ui-btn-right" data-rel="back" data-icon="delete">&nbsp;</a>
+                <h1>Info</h1>
+              </div>
+            
+              <div data-role="main" class="ui-content">
+                Maurizio Voglino<br>
+                <a href="mailto:info@mvitalia.com">info@mvitalia.com</a><br>
+                <a href="http://www.mvitalia.com/" target="_blank">www.mvitalia.com</a></p>
+                
+              </div>
+            
+              <div data-role="footer">
+                <h1></h1>
+              </div>
+            </div>  	
+            
+        </div> 
+    	<!-- fine pannello laterale -->
+        
+        <div data-role="header" data-position="fixed">
+            <a href="#" data-rel="back" data-icon="back" data-position="inline" class="ui-btn-left" >&nbsp;</a>
+			
+            
+            <div class="ui-btn-right">
+                <a href="#myPanel" class="ui-btn ui-shadow ui-btn-inline ui-btn-icon-left ui-icon-grid" data-role="button" data-icon="grid" >&nbsp;</a>
+                
+            </div>
+            
             <h1>Ricerca</h1>
             
             <form role="form" class="box_search">
@@ -31,7 +90,10 @@
                   <input type="search" name="search" class="form-control input-lg" data-mini="true" id="search" placeholder="Cerca..."  />
                 </div>
             </form>
+            
         </div>
+        
+      
         <div data-role="content">
             <ul data-role="listview" id="results" data-divider-theme="a" data-inset="true">
                 <li data-role="list-divider" data-theme="b" role="heading">Elenco aziende trovate</li>

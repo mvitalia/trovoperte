@@ -21,18 +21,71 @@
 <div class="txtwrapper">
     <!-- dettaglio -->
     <div data-role="page" id="page_dettaglio">
+    
+    	<!-- pannello laterale -->
+        <div data-role="panel" id="myPanel" data-display="overlay" data-position="right" style="top:66px !important"> 
+            <h2></h2>
+            
+            <a href="../index.html" class="btn_search ui-btn ui-shadow ui-btn-inline ui-icon-home ui-btn-icon-left" data-role="button" data-icon="home" data-ajax="false" >Home</a>
+            <a href="ricerca.html" class="btn_search ui-btn ui-shadow ui-btn-inline ui-icon-search ui-btn-icon-left" data-role="button" data-icon="search"  data-ajax="false" >Cerca</a>
+
+
+			<a href='#settings' data-icon='gear' data-rel='popup' data-position-to='window' data-transition='pop' class='btn_search ui-btn ui-shadow ui-btn-inline ui-icon-gear ui-btn-icon-left'>Impostazioni</a>
+            <!-- setting -->
+            <div id="settings" data-role="popup">
+                <div data-role="header">
+                    <a href="#" data-iconpos="notext" data-mini="true" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-delete ui-mini ui-btn-icon-notext ui-btn-right" data-rel="back" data-icon="delete">&nbsp;</a>
+                    
+                    
+                    <h1>Impostazioni</h1>
+                </div>
+                <div data-role="content">
+                    <ul data-role="listview" style="margin:0 !important">
+                        <li><a href="#" class="small">Testo piccolo</a></li>    
+                        <li><a href="#" class="med">Testo medio</a></li>    
+                        <li><a href="#" class="large">Testo grande</a></li>    
+                    </ul>
+                </div>
+            </div>
+            
+            
+            
+			<a href='#page_info' data-icon='info' data-rel='popup' data-position-to='window' data-transition='pop' class='btn_search ui-btn ui-shadow ui-btn-inline ui-icon-info ui-btn-icon-left'>Info</a>
+              
+            <!-- info -->
+            <div data-role="popup" id="page_info">
+              <div data-role="header">
+              	 <a href="#" data-iconpos="notext" data-mini="true" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-delete ui-mini ui-btn-icon-notext ui-btn-right" data-rel="back" data-icon="delete">&nbsp;</a>
+                <h1>Info</h1>
+              </div>
+            
+              <div data-role="main" class="ui-content">
+                Maurizio Voglino<br>
+                <a href="mailto:info@mvitalia.com">info@mvitalia.com</a><br>
+                <a href="http://www.mvitalia.com/" target="_blank">www.mvitalia.com</a></p>
+                
+              </div>
+            
+              <div data-role="footer">
+                <h1></h1>
+              </div>
+            </div>  	
+            
+        </div> 
+    	<!-- fine pannello laterale -->
+        
         <div data-role="header" data-position="fixed">
             <a href="#" data-rel="back" data-icon="back" data-position="inline" class="ui-btn-left" >&nbsp;</a>
             <a href="../index.html" data-role="none" class="link_index" data-ajax="false"><img src="../img/logo_trovoperte.png" class="logo_trovo" ></a>
 			
             
             <div class="ui-btn-right">
+                <a href="#myPanel" class="ui-btn ui-shadow ui-btn-inline ui-btn-icon-left ui-icon-grid" data-role="button" data-icon="grid" >&nbsp;</a>
                 
-                <a href="#settings" class="btn_settings" data-role="button" data-icon="gear">&nbsp;</a>
             </div>
             
         </div>
-        
+                
         <div role="main" id="" class="ui-content">
         	<div data-role="content">
                 <div id="scheda_azienda" data-divider-theme="a" data-inset="true">
@@ -43,23 +96,22 @@
                 <!-- gallery -->
                 <div data-role="popup" id="azienda_gallery">
                   <div data-role="header">
-                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-delete ui-btn-icon-left" data-rel="back" data-icon="delete">&nbsp;</a>
+                     <a href="#" data-iconpos="notext" data-mini="true" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-delete ui-mini ui-btn-icon-notext ui-btn-right" data-rel="back" data-icon="delete">&nbsp;</a>
                     <h1>Gallery</h1>
                   </div>
                 
                   <div data-role="main" class="ui-content">
                     <!-- Swiper -->
                     <div id="scheda_gallery" data-divider-theme="a" data-inset="true">
-                        <div id="lista_immagini" class="liste_foto">
-                            
-                        </div>
+                       <div id="lista_immagini" class="liste_foto">
+					   </div>
+                       
                            
                     </div>
                     
                   </div>      
                 
                   <div data-role="footer" data-position="fixed">
-                    <a href="#page_info" data-icon="info" class="btn_info">info</a>    	
                   </div>
                 </div> 
                 
@@ -67,7 +119,7 @@
                 <!-- news -->
                 <div data-role="popup" id="azienda_news" >
                   <div data-role="header">
-                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-delete ui-btn-icon-left" data-rel="back" data-icon="delete">&nbsp;</a>
+                     <a href="#" data-iconpos="notext" data-mini="true" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-delete ui-mini ui-btn-icon-notext ui-btn-right" data-rel="back" data-icon="delete">&nbsp;</a>
                     <h1>News</h1>
                   </div>
                 
@@ -81,7 +133,6 @@
                   </div>
                 
                   <div data-role="footer" data-position="fixed">
-                    <a href="#" data-icon="info" class="btn_info">info</a>    	
                   </div>
                 </div> 
                 
@@ -90,7 +141,7 @@
               
                 <div data-role="popup" id="azienda_promo">
                   <div data-role="header">
-                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-delete ui-btn-icon-left" data-rel="back" data-icon="delete">&nbsp;</a>
+                     <a href="#" data-iconpos="notext" data-mini="true" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-delete ui-mini ui-btn-icon-notext ui-btn-right" data-rel="back" data-icon="delete">&nbsp;</a>
                     <h1>Promo</h1>
                   </div>
             
@@ -103,7 +154,6 @@
                   </div>
             
                   <div data-role="footer" data-position="fixed">
-                    <a href="#page_info" data-icon="info" class="btn_info">info</a>    	
                   </div>
                 </div>
                 
@@ -122,45 +172,6 @@
         
     </div><!--page-->
 
-	
-    
-    
-	
-
-	<!-- setting -->
-	<div id="settings" data-role="page">
-            <div data-role="header">
-                <a href="#" data-rel="back" data-icon="back" data-icon="back" >&nbsp;</a>
-                <h1>Impostazioni</h1>
-            </div>
-            <div data-role="content">
-                <ul data-role="listview">
-                    <li><a href="#" class="small">Small</a></li>    
-                    <li><a href="#" class="med">Medium</a></li>    
-                    <li><a href="#" class="large">Large</a></li>    
-                </ul>
-            </div>
-    </div>
-    
-    
-    <!-- info -->
-    <div data-role="page" data-dialog="true" id="page_info">
-      <div data-role="header">
-        <h1>Info</h1>
-      </div>
-    
-      <div data-role="main" class="ui-content">
-        Maurizio Voglino<br>
-        <a href="mailto:info@mvitalia.com">info@mvitalia.com</a><br>
-        <a href="http://www.mvitalia.com/" target="_blank">www.mvitalia.com</a></p>
-        
-      </div>
-    
-      <div data-role="footer">
-        <h1></h1>
-      </div>
-    </div> 
-    
 </div>
 
 
@@ -174,8 +185,12 @@ $("#page_dettaglio").on("pageshow", function(event){
 		var scheda = "";
 		var footer_dettaglio = "";
 		
-		var scheda_gallery,scheda_promo,scheda_news = "";
-		var count_gallery,count_promo,count_news = 0;
+		var scheda_gallery = "";
+		var scheda_promo = "";
+		var scheda_news = "";
+		var count_gallery = 0;
+		var count_promo = 0;
+		var count_news = 0;
 		//container for $li to be added
 		$.each(info_dettaglio, function (i, name) {
 			//add the <li> to "li" variable
@@ -192,7 +207,9 @@ $("#page_dettaglio").on("pageshow", function(event){
 					
 					// GALLERY
 					if (foto.tipologia == 'gallery') {
-						scheda_gallery += "<img src='http://www.mvitalia.com/dimostrativi/patrizia/portaleapp%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' class='img_azienda'>";
+						scheda_gallery += "<a href='myPopup_" + count_gallery + "' data-rel='popup' data-position-to='window' data-rel='popup' data-position-to='window'><img src='http://www.mvitalia.com/dimostrativi/patrizia/portaleapp%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' class='img_azienda'></a>";
+						
+						//<div data-role='popup' id='myPopup_" + count_gallery + "'><img src='http://www.mvitalia.com/dimostrativi/patrizia/portaleapp%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' style='width:800px;height:400px;'></div>
 						count_gallery += 1;
 					}
 			
@@ -233,10 +250,10 @@ $("#page_dettaglio").on("pageshow", function(event){
 				scheda += "<p>" + name.indirizzo + " " + name.num + "</p><p>" + name.cap + " " + name.paese + " " + name.provincia + "</div>"; // INDIRIZZO
 				
 				if (name.tipo_contratto != 'base'){
-					scheda +="<div class='box_extra'><a id=" + name.id + " href='#azienda_gallery' data-icon='camera' data-rel='popup' data-position-to='window' data-transition='pop' class='azienda_gallery ui-btn ui-shadow ui-btn-inline ui-icon-heart ui-btn-icon-left' >Gallery</a>";
+					scheda +="<div class='box_extra'><a id=" + name.id + " href='#azienda_gallery' data-icon='camera' data-rel='popup' data-position-to='window' data-transition='pop' class='azienda_gallery ui-btn ui-shadow ui-btn-inline ui-icon-camera ui-btn-icon-left' >Gallery</a>";
 	
 					if (name.tipo_contratto != 'intermedio') {
-						scheda +="<a id=" + name.id + " href='#azienda_news' data-icon='calendar' data-rel='popup' data-position-to='window' data-transition='pop' class='azienda_news ui-btn ui-shadow ui-btn-inline ui-icon-heart ui-btn-icon-left'>News</a>";
+						scheda +="<a id=" + name.id + " href='#azienda_news' data-icon='calendar' data-rel='popup' data-position-to='window' data-transition='pop' class='azienda_news ui-btn ui-shadow ui-btn-inline ui-icon-calendar ui-btn-icon-left'>News</a>";
 						scheda +="<a id=" + name.id + " href='#azienda_promo' data-icon='heart' class='azienda_promo ui-btn ui-shadow ui-btn-inline ui-icon-heart ui-btn-icon-left' data-rel='popup' data-position-to='window' data-transition='pop'>Promo</a>";
 												
 					}
@@ -257,7 +274,7 @@ $("#page_dettaglio").on("pageshow", function(event){
 				
 				//<li class='ui-block-a' style="float:left;width:25%"><a href="#page_info" data-icon="info" data-iconpos="left" class="ui-state-persist"></a></li>
 				//footer_dettaglio = "<li class='ui-block-a' style='float:left;width:25%'><a href='page_info' data-icon='info' data-role='button' class='ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-info ui-btn-icon-left'>Info</a></li>";
-				footer_dettaglio += "<li class='ui-block-a' style='float:left;width:25%'><a href='http://" + name.web + "' data-icon='navigation' data-role='button' class='btn_web ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-navigation ui-btn-icon-left'>Web</a></li>";
+				footer_dettaglio += "<li class='ui-block-a' style='float:left;width:25%'><a href='http://" + name.web + "' rel='external' data-icon='navigation' data-role='button' class='btn_web ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-navigation ui-btn-icon-left'>Web</a></li>";
 				footer_dettaglio += "<li class='ui-block-b '><a href='mailto:" + name.mail + "' data-icon='mail' data-role='button' class='btn_mail ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-mail ui-btn-icon-left'>E-mail</a></li>";
 				footer_dettaglio += "<li class='ui-block-c '><a href='tel:" + name.tel + "' data-icon='phone' data-role='button'  class='btn_tel ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-phone ui-btn-icon-left'>Tel.</a></li>";
 				footer_dettaglio += "<li class='ui-block-d '><a href='tel:" + name.fax + "' data-role='button' class='btn_fax ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-btn-icon-left'>fax</a></li>"; // RIFERIMENTI
@@ -272,8 +289,7 @@ $("#page_dettaglio").on("pageshow", function(event){
 		$("#scheda_azienda").append(htmlObject).promise().done(function () {});
 		
 		
-		$("#lista_immagini").append(scheda_gallery).promise().done(function () {});
-		
+		$("#lista_immagini").html(scheda_gallery).promise().done(function () {});
 		if (name.tipo_contratto != 'intermedio') {
 			$("#lista_promo").append(scheda_promo).promise().done(function () {});
 			$("#lista_news").append(scheda_news).promise().done(function () {});
@@ -284,5 +300,6 @@ $("#page_dettaglio").on("pageshow", function(event){
 
 
 </script>
+
 </body>
 </html>
