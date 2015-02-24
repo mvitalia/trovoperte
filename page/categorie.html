@@ -165,7 +165,7 @@ $("#categorie").on("pageshow", function(event){
 			if ((name.id_macrocategoria == id_macrocategoria)) {
 				li += '<li><a href="lista_aziende.html?id_categoria=' + name.id_categoria + '" id="' + name.id_categoria + '" class="categ-go" data-ajax="false">';
 				if (name.icona_categoria != ""){
-					li += '<img src="http://www.trovoperte.com%5Cpublic%5Cupload_gallery%5Cimmagini%5C' + name.icona_categoria + '" class="ui-li-thumb"/>';
+					li += '<img src="http://www.trovoperte.com/public/upload_gallery/immagini/' + name.icona_categoria + '" class="ui-li-thumb"/>';
 				}
 				li += '<h3 class="ui-li-heading">' + name.categoria + '</h3></a></li>';
 				
