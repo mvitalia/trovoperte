@@ -205,12 +205,12 @@ $("#page_dettaglio").on("pageshow", function(event){
 				// IMMAGINE PRINCIPALE
 				$.each(name.foto, function (i, foto) {
 					if (foto.tipologia == 'principale') {
-						scheda += "<img src='http://www.trovoperte.com%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' class='logo_azienda' >";
+						scheda += "<img src='http://www.trovoperte.com/public/upload_gallery/immagini/" + foto.immagine + "' class='logo_azienda' >";
 					}
 					
 					// GALLERY
 					if (foto.tipologia == 'gallery') {
-						scheda_gallery += "<a href='myPopup_" + count_gallery + "' data-rel='popup' data-position-to='window' data-rel='popup' data-position-to='window'><img src='http://www.trovoperte.com%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' class='img_azienda'></a>";
+						scheda_gallery += "<a href='myPopup_" + count_gallery + "' data-rel='popup' data-position-to='window' data-rel='popup' data-position-to='window'><img src='http://www.trovoperte.com/public/upload_gallery/immagini/" + foto.immagine + "' class='img_azienda'></a>";
 						
 						//<div data-role='popup' id='myPopup_" + count_gallery + "'><img src='http://www.trovoperte.com%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' style='width:800px;height:400px;'></div>
 						count_gallery += 1;
@@ -222,14 +222,14 @@ $("#page_dettaglio").on("pageshow", function(event){
 							
 						// NEWS
 						if (foto.tipologia == 'news') {
-							scheda_news += "<img src='http://www.trovoperte.com%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' class='img_azienda'>";
+							scheda_news += "<img src='http://www.trovoperte.com/public/upload_gallery/immagini/" + foto.immagine + "' class='img_azienda'>";
 							count_news += 1;
 						}
 										
 						
 						// PROMO
 						if (foto.tipologia == 'promo') {
-							scheda_promo += "<img src='http://www.trovoperte.com%5Cpublic%5Cupload_gallery%5Cimmagini%5C" + foto.immagine + "' class='img_azienda'>";
+							scheda_promo += "<img src='http://www.trovoperte.com/public/upload_gallery/immagini/" + foto.immagine + "' class='img_azienda'>";
 							count_promo += 1;
 						}
 				
