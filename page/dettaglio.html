@@ -269,7 +269,8 @@ $("#page_dettaglio").on("pageshow", function(event){
 				}
 				
 				scheda += "<div class='info_azienda'><h1>" + name.ragione_sociale + "</h1>"; // RAGIONE SOCIALE
-				scheda += "<p>" + name.indirizzo + " " + name.num + "</p><p>" + name.cap + " " + name.paese + " " + name.provincia + "</div>"; // INDIRIZZO
+				scheda += "<p>" + name.indirizzo + " " + name.num + "</p><p>" + name.cap + " " + name.paese + " " + name.provincia + "</p>";
+				scheda += "<p><a href='tel:" + name.tel + "' data-icon='phone' data-role='button'  class='btn_tel ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-phone ui-btn-icon-left'>Tel. " + name.tel + "</a></p></div>"; // INDIRIZZO
 				
 				if (name.tipo_contratto != 'base'){
 					scheda +="<div class='box_extra'><a id=" + name.id + " href='#azienda_gallery' data-icon='camera' data-rel='popup' data-position-to='window' data-transition='pop' class='azienda_gallery ui-btn ui-shadow ui-btn-inline ui-icon-camera ui-btn-icon-left' >Gallery</a>";
