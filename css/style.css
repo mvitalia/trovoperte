@@ -362,6 +362,8 @@ html, body
 {
     margin-top:0 !important;
     margin-bottom:0 !important;
+	font-weight:normal;
+	line-height:22px
 }
 
 #page_dettaglio_newsPromo #footer_dettaglio .info_azienda h1
