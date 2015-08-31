@@ -58,7 +58,7 @@ function caricaAllIndustry(elencoMarker) {
                     position: coorAzienda,
                     map: map,
                     title: elencoMarker[i].nome,
-                    url: "http://www.mvitalia.com/dimostrativi/patrizia/alex/trovo_x_te/app/page/dettaglio.html?id_azienda=" + elencoMarker[i].id
+                    url: "http://www.trovoperte.com/app/page/dettaglio.html?id_azienda=" + elencoMarker[i].id
                 });
                 google.maps.event.addListener(marker, 'click', function () {
                     window.location.href = this.url;
