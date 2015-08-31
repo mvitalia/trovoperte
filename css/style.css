@@ -61,6 +61,7 @@ html, body
 }
 
 .form-group {width:100%; float:left; clear:both}
+.form-group .ui-mini {padding-right:0 !important}
 .ui-input-search{width:60%; float:left; margin-left:0 !important}
 .ui-select{width:22%;float:right; margin-right:54px;}
 .ui-select select {width:100%;}
@@ -74,7 +75,7 @@ html, body
 }
 
 @media screen and (max-width:600px){
-	.ui-input-search {width:40% !important}
+	.ui-input-search {width:49% !important}
 	.ui-select {width:30% !important}
 }
 
