@@ -37,7 +37,7 @@ html, body
     width: 100%;
     clear: both;
 }
-
+.ui-header-fixed {padding-top:10px !important}
 #search
 {
  	height:4em
