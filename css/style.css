@@ -543,7 +543,8 @@ html, body {
 #btnNavigazione
 {
     background-color:#57BA46 !important;  
-    color:White;    
+    color:#fff;    
+	text-shadow:none
 }
 
 /* Mappa per la pagina dettaglio */
