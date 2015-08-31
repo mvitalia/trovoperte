@@ -264,7 +264,7 @@ html, body
 }
 
 /* header */
-.ui-btn-left, .ui-btn-right
+.ui-header-fixed .ui-btn-left, .ui-header-fixed .ui-btn-right, #myPanel .ui-btn-right
 {
     margin-top: 13px !important;
 }
