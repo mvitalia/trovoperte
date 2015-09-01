@@ -322,14 +322,17 @@ html, body
 
 #lista_news .news_imgCentrata
 {
-      top:50% ;
-      transform: translateY(-50%) ;  
+/*      top:50% ;
+      transform: translateY(-50%) ;  */
+	  vertical-align:middle
 }
 
 #lista_promo .news_imgCentrata
 {
-      top:50% ;
-      transform: translateY(-50%) ;  
+      /*top:50% ;
+      transform: translateY(-50%) ;  */
+	  
+	   vertical-align:middle
 }
 
 /* Pagina dei dettagli delle news e delle promo */
@@ -606,6 +609,7 @@ html, body {
      #allIndustry_mapPage
     {
         width: 500px;
+		height:500px;
         padding:0 !important;
          margin: 0 auto !important; 
     }    
