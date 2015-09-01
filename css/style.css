@@ -553,11 +553,11 @@ html, body {
 }
 
 /* Mappa per la pagina dettaglio */
-@media screen and (min-width: 850px)
-{    
+
      #map-page
     {
         width: 500px;
+		height:500px;
         padding:0 !important;
          margin: 0 auto !important; 
     }    
@@ -575,7 +575,7 @@ html, body {
        
     } 
     
-}
+
 
 @media screen and (max-width: 700px)
 {    
@@ -604,8 +604,7 @@ html, body {
 
 /* Mappa per tutte le ditte */
 
-@media screen and (min-width: 850px)
-{    
+
      #allIndustry_mapPage
     {
         width: 500px;
@@ -627,7 +626,7 @@ html, body {
        
     } 
     
-}
+
 
 @media screen and (max-width: 700px)
 {    
