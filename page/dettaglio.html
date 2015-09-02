@@ -642,7 +642,7 @@
                 });
                 //append list to ul
                 var htmlObject = $(scheda);
-                $.getJSON("http://www.mvitalia.com/dimostrativi/patrizia/alex/trovo_x_te/admin/get_json_data_newsPromo.asp?id_azienda=" + id_azienda + "&tipologia=news", function (info_news) {
+                $.getJSON("http://www.trovoperte.com/admin/get_json_data_newsPromo.asp?id_azienda=" + id_azienda + "&tipologia=news", function (info_news) {
                 
                     $.each(info_news, function (i, name) {
                         var news = {};
@@ -670,7 +670,7 @@
                     $(".slider_news").append(blocco);
                 });
 
-                $.getJSON("http://www.mvitalia.com/dimostrativi/patrizia/alex/trovo_x_te/admin/get_json_data_newsPromo.asp?id_azienda=" + id_azienda + "&tipologia=promo", function (info_promo) {
+                $.getJSON("http://www.trovoperte.com/admin/get_json_data_newsPromo.asp?id_azienda=" + id_azienda + "&tipologia=promo", function (info_promo) {
 
 
                    
@@ -709,9 +709,9 @@
                 $("#scheda_azienda").append(htmlObject).promise().done(function () { });
 
 
-                /*$("#lista_immagini").html(scheda_gallery).promise().done(function () { });*/
+                //$("#lista_immagini").html(scheda_gallery).promise().done(function () { });
 
-                $("#lista_promo").append(scheda_promo).promise().done(function () { });
+                //$("#lista_promo").append(scheda_promo).promise().done(function () { });
                 //$("#lista_news").append(scheda_news).promise().done(function () { });
 
             });

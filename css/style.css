@@ -5,6 +5,15 @@ html, body
     padding: 0;
     margin: 0;
 }
+
+/* solo web*/
+/*
+body {width:75% !important; margin:0 auto !important; overflow-x:hidden}
+.ui-header , .ui-footer {width:75% !important; margin: 0 auto !important}
+.btn_search {width:95% !important}
+*/
+/*fine solo web*/
+
 .link_index
 {
     position: relative !important;
@@ -152,6 +161,7 @@ html, body
     clear: both;
     padding-top: 0px;
     text-align: justify;
+	width:99%
 }
 #scheda_azienda .servizi
 {
