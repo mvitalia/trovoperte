@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="com.trovo.perte" version="2.0.1" >		
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="com.trovo.perte" version="1.0.2" >		
 		
     <name>Trovo per te</name>
     <description>
@@ -40,6 +40,8 @@
 	<preference name="SplashScreenDelay" value="2000"/>
 	<preference name="KeepRunning" value="true"/>
 	
+	
+	
 	<gap:splash src="splash.png"/>
 	<gap:splash src="splash/android/ldpi.png" gap:platform="android" gap:qualifier="port-ldpi" />
 	<gap:splash src="splash/android/mdpi.png" gap:platform="android" gap:qualifier="port-mdpi" />
@@ -71,22 +73,41 @@
     <gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
     <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
     <gap:plugin name="org.apache.cordova.file" version="1.3.1" />
-
+	<gap:plugin name="com.danielcwilson.plugins.googleanalytics" version="0.6.1" />
+	
     <!-- for iOS -->
     <feature name="SocialSharing">
         <param name="ios-package" value="SocialSharing" />
     </feature>
+	<feature name="NetworkStatus">
+		<param name="ios-package" value="CDVConnection" />
+	</feature>
+	<feature name="UniversalAnalytics">
+	  <param name="ios-package" value="UniversalAnalyticsPlugin" />
+	</feature>
+	
 
     <!-- for Android (you will find one in res/xml) -->
     <feature name="SocialSharing">
         <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
     </feature>
-
+	<feature name="NetworkStatus">
+		<param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+	</feature>
+	
     <!-- for Windows Phone -->
     <feature name="SocialSharing">
         <param name="wp-package" value="SocialSharing"/>
     </feature>
-    
-	<access origin="*" />
-
+	
+	<feature name="UniversalAnalytics">
+	  <param name="android-package" value="com.danielcwilson.plugins.analytics.UniversalAnalyticsPlugin" />
+	</feature>
+	
+	
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<access origin="*" />	
+	
 </widget>
