@@ -1,7 +1,7 @@
 <html>
 <head>
-	<script type="text/javascript" src="../cordova.js"></script>
-	<script src="../js/SocialSharing.js"></script>
+	<!--<script type="text/javascript" src="../cordova.js"></script>
+	<script src="../js/SocialSharing.js"></script>-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -21,13 +21,13 @@
 	
 	
      <script>
-		function condividi(){
+		/*function condividi(){
 			var aus = window.ragione_sociale  + '\n' + window.titolo + '\n';
 			var titolo = "";
 			var img = "http://www.trovoperte.com/public/upload_gallery/immagini/" + window.immagine;
 			window.plugins.socialsharing.share(aus, titolo, img, 'http://www.trovoperte.com/app/page/dettaglio_newsPromo.asp?id_newsPromo=9&tipologia=promo');
 			//window.plugins.socialsharing.share('Message, subject, image and link', 'The subject', 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')
-		}
+		}*/
 		
 	</script>
 </head>
@@ -326,14 +326,14 @@ Oppure <br /><br />
 						*/
 						
 						/*web only*/
-						//footer_dettaglio += "<div style='text-align:center'><span class='st_sharethis_large' displayText='ShareThis'></span><span class='st_facebook_large' displayText='Facebook'></span><span class='st_twitter_large' displayText='Tweet'></span><span class='st_linkedin_large' displayText='LinkedIn'></span><span class='st_googleplus_large' displayText='Google +'></span><span class='st__large' displayText=''></span></div><br>";
+						footer_dettaglio += "<div style='text-align:center;margin-top:10px'><span class='st_sharethis_large' displayText='ShareThis'></span><span class='st_facebook_large' displayText='Facebook'></span><span class='st_twitter_large' displayText='Tweet'></span><span class='st_linkedin_large' displayText='LinkedIn'></span><span class='st_googleplus_large' displayText='Google +'></span><span class='st__large' displayText=''></span></div><br>";
 					//	scheda += "<div style='text-align:center'><button class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-mini' onclick='condividi()'>Condividi</button></div><br><br></div></div></div>";
 						
-						footer_dettaglio += "<li class='ui-block-b ' style='width:50%'><a href='#' onclick='condividi()' data-ajax='false' data-role='button' data-icon='arrow-r' class='btn_tel ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-carat-r ui-btn-icon-right'>Condividi</a></li>";
+						footer_dettaglio += "<li class='ui-block-b ' style='width:40%'><a href='#' onclick='condividi()' data-role='button' data-icon='arrow-r' class='btn_tel ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-carat-r ui-btn-icon-right'>Condividi</a></li>";
 						
-						footer_dettaglio += "<li class='ui-block-b ' style='width:50%'><a href='dettaglio.html?id_azienda=" + name.id_attivita + "' data-ajax='false' data-role='button' data-icon='arrow-r' class='btn_mail ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-carat-r ui-btn-icon-right'>Accedi alla scheda azienda</a></li>";
+						footer_dettaglio += "<li class='ui-block-b ' style='width:60%'><a href='dettaglio.html?id_azienda=" + name.id_attivita + "' data-ajax='false' data-role='button' data-icon='arrow-r' class='btn_mail ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-carat-r ui-btn-icon-right'>Accedi alla scheda azienda</a></li>";
 						
-						//footer_dettaglio += "<li class='ui-block-b'><a href='dettaglio.html?id_azienda=" + name.id_attivita + "' data-ajax='false' data-icon='arrow-r' class='btn-tel-dettagli ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-carat-r ui-btn-icon-right'>Accedi alla scheda azienda</a></li>"; // WEB
+						//footer_dettaglio += "<li class='ui-block-b' style='width:100%'><a href='dettaglio.html?id_azienda=" + name.id_attivita + "' data-ajax='false' data-icon='arrow-r' class='btn-tel-dettagli btn_mail ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-carat-r ui-btn-icon-right'>Accedi alla scheda azienda</a></li>"; // WEB
 
                     }
                 });
