@@ -1,11 +1,36 @@
+<%
+dim id_newsPromo 
+dim tipologia
+
+id_newsPromo = request.QueryString("id_newsPromo")
+tipologia = request.QueryString("tipologia")
+
+dim connessione
+connessione = "DRIVER={MySQL ODBC 3.51 Driver};Server=62.149.150.101;Database=Sql280123_3;Uid=Sql280123;Pwd=b73e5b12"
+
+
+dim rs
+Set rs = Server.CreateObject("ADODB.Recordset")
+Dim conn 
+Set conn = Server.CreateObject("ADODB.Connection") 
+conn.Open connessione
+
+dim sqlNewsPromo
+sqlNewsPromo = "SELECT F.*, A.id, A.coordinate, A.ragione_sociale, A.indirizzo, A.num, A.cap, A.paese, A.provincia, A.tel, A.mail, A.web FROM app_attivita as A, app_foto as F WHERE F.id_attivita = A.id AND F.tipologia='" & tipologia & "' AND F.id=" & id_newsPromo
+
+rs.Open sqlNewsPromo, conn
+%>
+
 <html>
 <head>
-	<!--<script type="text/javascript" src="../cordova.js"></script>
-	<script src="../js/SocialSharing.js"></script>-->
+	
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    
+    
+    
     <link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" href="../css/default_theme.min.css">
     <link rel="stylesheet" href="../css/jquery.mobile.icons.min.css">
@@ -15,21 +40,33 @@
     <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
     <script src="../js/standard.js"></script>
     
-	<!--<script type="text/javascript">var switchTo5x=true;</script>
-<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<script type="text/javascript">stLight.options({publisher: "2412a263-b8ee-4297-9739-f1bd0d2207b6", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>-->
+ 	<%  
+	if not rs.EOF then
+	%>
+		<meta property='og:title' content='<%=rs.Fields("titolo")%>'>
+        <meta property='og:description' content='<%=rs.Fields("descrizione")%>'>
+        <meta property='og:type' content='article'>
+        <meta property='og:locale' content='it_IT'>				       
+        <meta property='og:image' content=''>
+    <%
+	else %>
+    	<meta property='og:title' content='Trovo x Te'>
+		<meta property='og:description' content='Il portale creato apposta per te,
+per trovare in mondo facile e veloce quello che ti serve nel tuo territorio.'>
+        <meta property='og:type' content='article'>
+        <meta property='og:locale' content='it_IT'>				       
+        <meta property='og:image' content='http://www.trovoperte.com/images/logo_trovoperte.png'>
 	
+    <%end if
 	
-     <script>
-		function condividi(){
-			var aus = window.ragione_sociale  + '\n' + window.titolo + '\n';
-			var titolo = "";
-			var img = "http://www.trovoperte.com/public/upload_gallery/immagini/" + window.immagine;
-			window.plugins.socialsharing.share(aus, titolo, img, 'http://www.trovoperte.com/app/page/dettaglio_newsPromo.asp?id_newsPromo=9&tipologia=promo');
-			//window.plugins.socialsharing.share('Message, subject, image and link', 'The subject', 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')
-		}
-		
-	</script>
+	rs.Close
+	conn.Close
+	set rs=nothing
+	set conn=nothing
+	
+	%>
+    
+    
 </head>
 <body>
     <div class="txtwrapper">
@@ -241,7 +278,6 @@ Oppure <br /><br />
                 <div data-role="content" class="ui-content" role="main">
                     <div id="scheda_newsPromo" data-divider-theme="a" data-inset="true">
                         <span class="testo_finto">testo finto</span>
-                        <br><br><br>
                     </div>
                 </div>
             </div>
@@ -314,10 +350,10 @@ Oppure <br /><br />
                         if (name.icona_newsPromo != '') {
                             scheda += "<img src='http://www.trovoperte.com/public/upload_gallery/immagini/" + name.icona_newsPromo + "'>";
                         }
-                        scheda = scheda + "<p id='descrizione_newsPromo'>" + name.descrizione_newsPromo + "</p><br>";
+                        scheda = scheda + "<p id='descrizione_newsPromo'>" + name.descrizione_newsPromo + "</p></div></div></div>"
 						
 						
-                        scheda += "<div   class='info_azienda'><div class='ui-content'><p>Pubblicato da " + name.ragione_sociale + "</p><p>Inserito il: " + data + "</p></div></div></div>"; // RAGIONE SOCIALE
+                        footer_dettaglio += "<div   class='info_azienda'><div class='ui-content'><p>Pubblicato da " + name.ragione_sociale + "</p><p>Inserito il: " + data + "</p>"; // RAGIONE SOCIALE
                         /*footer_dettaglio += "<p><a id=navigatore href='http://maps.google.com/maps?&daddr=" + name.coordinate + "' data-icon='navigation' class=' btn-tel-dettagli ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-navigation ui-btn-icon-left'>" + name.indirizzo + " " + name.num + " " + name.cap + " " + name.paese + " " + name.provincia + "</a></p>"; // INDIRIZZO
                         footer_dettaglio += "<p><a href='tel:" + name.tel + "' data-icon='phone' class=' btn-tel-dettagli ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-phone ui-btn-icon-left'>" + name.tel + "</a></p>"; // TELEFONO
                         footer_dettaglio += "<p><a href='mailto:" + name.mail + "' data-icon='mail' class='btn-tel-dettagli ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-mail ui-btn-icon-left'>" + name.mail + "</a></p>"; // MAIL
@@ -326,14 +362,10 @@ Oppure <br /><br />
 						*/
 						
 						/*web only*/
-						//footer_dettaglio += "<div style='text-align:center;margin-top:10px'><span class='st_sharethis_large' displayText='ShareThis'></span><span class='st_facebook_large' displayText='Facebook'></span><span class='st_twitter_large' displayText='Tweet'></span><span class='st_linkedin_large' displayText='LinkedIn'></span><span class='st_googleplus_large' displayText='Google +'></span><span class='st__large' displayText=''></span></div><br>";
-					//	scheda += "<div style='text-align:center'><button class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-mini' onclick='condividi()'>Condividi</button></div><br><br></div></div></div>";
+						//footer_dettaglio += "<div style='text-align:center'><span class='st_sharethis_large' displayText='ShareThis'></span><span class='st_facebook_large' displayText='Facebook'></span><span class='st_twitter_large' displayText='Tweet'></span><span class='st_linkedin_large' displayText='LinkedIn'></span><span class='st_googleplus_large' displayText='Google +'></span><span class='st__large' displayText=''></span></div><br>";
+						footer_dettaglio += "<div style='text-align:center'><button class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-mini' onclick='condividi()'>Condividi</button></div><br>";
 						
-						footer_dettaglio += "<li class='ui-block-b ' style='width:40%'><a href='#' onclick='condividi()' data-role='button' data-icon='arrow-r' class='btn_tel ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-carat-r ui-btn-icon-right'>Condividi</a></li>";
-						
-						footer_dettaglio += "<li class='ui-block-b ' style='width:60%'><a href='dettaglio.html?id_azienda=" + name.id_attivita + "' data-ajax='false' data-role='button' data-icon='arrow-r' class='btn_mail ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-carat-r ui-btn-icon-right'>Accedi alla scheda azienda</a></li>";
-						
-						//footer_dettaglio += "<li class='ui-block-b' style='width:100%'><a href='dettaglio.html?id_azienda=" + name.id_attivita + "' data-ajax='false' data-icon='arrow-r' class='btn-tel-dettagli btn_mail ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-carat-r ui-btn-icon-right'>Accedi alla scheda azienda</a></li>"; // WEB
+						footer_dettaglio += "<p id='azienda_link'><a href='dettaglio.html?id_azienda=" + name.id_attivita + "' data-ajax='false' data-icon='arrow-r' class='btn-tel-dettagli ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-carat-r ui-btn-icon-right'>Accedi alla scheda azienda</a></p>"; // WEB
 
                     }
                 });
