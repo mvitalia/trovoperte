@@ -14,8 +14,8 @@
     <script src="../js/jquery.mobile-1.4.5.min.js"></script>
     <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
     <script src="../js/standard.js"></script>
-    <!--
-	<script type="text/javascript">var switchTo5x=true;</script>
+    
+	<!--<script type="text/javascript">var switchTo5x=true;</script>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "2412a263-b8ee-4297-9739-f1bd0d2207b6", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>-->
 	
@@ -25,7 +25,7 @@
 			var aus = window.ragione_sociale  + '\n' + window.titolo + '\n';
 			var titolo = "";
 			var img = "http://www.trovoperte.com/public/upload_gallery/immagini/" + window.immagine;
-			window.plugins.socialsharing.share(aus, titolo, img, 'http://www.trovoperte.com/app/page/dettaglio_newsPromo.html?id_newsPromo=9&tipologia=promo');
+			window.plugins.socialsharing.share(aus, titolo, img, 'http://www.trovoperte.com/app/page/dettaglio_newsPromo.asp?id_newsPromo=9&tipologia=promo');
 			//window.plugins.socialsharing.share('Message, subject, image and link', 'The subject', 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')
 		}
 		
@@ -293,7 +293,7 @@ Oppure <br /><br />
 						meta += "<meta property='og:description' content='"+ name.descrizione_newsPromo +"'>";
 					meta += "<meta property='og:type' content='article'>";
 					meta += "<meta property='og:locale' content='it_IT'>";					
-					meta += "<meta property='og:url' content='www.trovoperte.com/app/page/dettaglio_newsPromo.html?tipologia="+ tipologia_newsPromo + "&id_newsPromo="+id_newsPromo +"'>";
+					//meta += "<meta property='og:url' content='www.trovoperte.com/app/page/dettaglio_newsPromo.html?tipologia="+ tipologia_newsPromo + "&id_newsPromo="+id_newsPromo +"'>";
 					meta += "<meta property='og:image' content='http://www.trovoperte.com/public/upload_gallery/immagini/"+ name.icona_newsPromo + "'>";
 					
 					$("head").append(meta);
@@ -324,8 +324,8 @@ Oppure <br /><br />
                         
 						*/
 						
-						/*web only
-						footer_dettaglio += "<div style='text-align:center'><span class='st_sharethis_large' displayText='ShareThis'></span><span class='st_facebook_large' displayText='Facebook'></span><span class='st_twitter_large' displayText='Tweet'></span><span class='st_linkedin_large' displayText='LinkedIn'></span><span class='st_googleplus_large' displayText='Google +'></span><span class='st__large' displayText=''></span></div><br>";*/
+						/*web only*/
+						//footer_dettaglio += "<div style='text-align:center'><span class='st_sharethis_large' displayText='ShareThis'></span><span class='st_facebook_large' displayText='Facebook'></span><span class='st_twitter_large' displayText='Tweet'></span><span class='st_linkedin_large' displayText='LinkedIn'></span><span class='st_googleplus_large' displayText='Google +'></span><span class='st__large' displayText=''></span></div><br>";
 						footer_dettaglio += "<div style='text-align:center'><button class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-mini' onclick='condividi()'>Condividi</button></div><br>";
 						
 						footer_dettaglio += "<p id='azienda_link'><a href='dettaglio.html?id_azienda=" + name.id_attivita + "' data-ajax='false' data-icon='arrow-r' class='btn-tel-dettagli ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-carat-r ui-btn-icon-right'>Accedi alla scheda azienda</a></p>"; // WEB
