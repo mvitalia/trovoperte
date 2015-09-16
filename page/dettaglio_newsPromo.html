@@ -317,7 +317,7 @@ Oppure <br /><br />
                         scheda = scheda + "<p id='descrizione_newsPromo'>" + name.descrizione_newsPromo + "</p><br>";
 						
 						
-                        scheda += "<div   class='info_azienda'><div class='ui-content'><p>Pubblicato da " + name.ragione_sociale + "</p><p>Inserito il: " + data + "<br></p></div></div></div>"; // RAGIONE SOCIALE
+                        scheda += "<div   class='info_azienda'><div class='ui-content'><p>Pubblicato da " + name.ragione_sociale + "</p><p>Inserito il: " + data + "<br></p><br></div></div></div>"; // RAGIONE SOCIALE
                         /*footer_dettaglio += "<p><a id=navigatore href='http://maps.google.com/maps?&daddr=" + name.coordinate + "' data-icon='navigation' class=' btn-tel-dettagli ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-navigation ui-btn-icon-left'>" + name.indirizzo + " " + name.num + " " + name.cap + " " + name.paese + " " + name.provincia + "</a></p>"; // INDIRIZZO
                         footer_dettaglio += "<p><a href='tel:" + name.tel + "' data-icon='phone' class=' btn-tel-dettagli ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-phone ui-btn-icon-left'>" + name.tel + "</a></p>"; // TELEFONO
                         footer_dettaglio += "<p><a href='mailto:" + name.mail + "' data-icon='mail' class='btn-tel-dettagli ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-mail ui-btn-icon-left'>" + name.mail + "</a></p>"; // MAIL
@@ -329,7 +329,7 @@ Oppure <br /><br />
 						//footer_dettaglio += "<div style='text-align:center;margin-top:10px'><span class='st_sharethis_large' displayText='ShareThis'></span><span class='st_facebook_large' displayText='Facebook'></span><span class='st_twitter_large' displayText='Tweet'></span><span class='st_linkedin_large' displayText='LinkedIn'></span><span class='st_googleplus_large' displayText='Google +'></span><span class='st__large' displayText=''></span></div><br>";
 					//	scheda += "<div style='text-align:center'><button class='ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-mini' onclick='condividi()'>Condividi</button></div><br><br></div></div></div>";
 						
-						footer_dettaglio += "<li class='ui-block-b ' style='width:35%'><a href='#' onclick='condividi()' data-role='button' data-icon='arrow-r' class='btn_tel ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-carat-r ui-btn-icon-right'>Condividi</a></li>";
+						footer_dettaglio += "<li class='ui-block-b ' style='width:35%'><a href='#' onclick='condividi()' data-ajax='false' data-role='button' data-icon='arrow-r' class='btn_tel ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-carat-r ui-btn-icon-right'>Condividi</a></li>";
 						
 						footer_dettaglio += "<li class='ui-block-b ' style='width:65%'><a href='dettaglio.html?id_azienda=" + name.id_attivita + "' data-ajax='false' data-role='button' data-icon='arrow-r' class='btn_mail ui-btn ui-state-persist ui-btn-up-a ui-btn-inline ui-icon-carat-r ui-btn-icon-right'>Accedi alla scheda azienda</a></li>";
 						
