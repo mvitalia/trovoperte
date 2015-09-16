@@ -8,8 +8,7 @@
     <script type='text/javascript' src='../js/jquery-1.11.2.min.js'></script>
     <script type="text/javascript" src="../js/jquery.mobile-1.4.5.min.js"></script>
      <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
-    <link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.4.5.min.css">
-    <link rel="stylesheet" href="../css/default_theme.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.4.5.min.css">    <link rel="stylesheet" href="../css/default_theme.min.css">
     <link rel="stylesheet" href="../css/jquery.mobile.icons.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script type="text/javascript" src="../js/swipe.js"></script>
@@ -78,6 +77,8 @@
                     Contattaci</a> <a href='#page_registrazione' data-icon='plus' data-rel='popup' data-position-to='window'
                         data-transition='pop' class='btn_search sideOption ui-btn  ui-btn-inline ui-icon-plus ui-btn-icon-left'>
                         Richiesta iscrizione</a>
+                        <a href="#" onClick="prepara_link_areariservata(this)" class="btn_search sideOption ui-btn  ui-btn-inline ui-icon-lock ui-btn-icon-left" data-role="button" data-icon="lock" data-ajax="false">Area riservata</a>
+
                         
             <!-- info -->
            
@@ -580,6 +581,8 @@
 
                         if (count_gallery == 0) {
                             scheda_gallery += "<p>Nessuna immagine da visualizzare</p>";
+							$("#scheda_gallery .slider_next").hide();
+							$("#scheda_gallery .slider_prev").hide();
                         }
                         /* if (count_news == 0) {
                         scheda_news += "Nessuna immagine da visualizzare";
@@ -664,8 +667,10 @@
                         }
                     }
                     else {
-                        blocco = blocco + "<p> Non ci sono news da visualizzare</p>"
-                    }
+						blocco = blocco + "<p> Non ci sono news da visualizzare</p>"
+						$("#scheda_news .slider_next").hide();
+						$("#scheda_news .slider_prev").hide();
+					}
 
                     $(".slider_news").append(blocco);
                 });
@@ -697,7 +702,9 @@
                         }
                     }
                     else {
-                        blocco = blocco + "<p> Non ci sono promo da visualizzare</p>"
+                        blocco = blocco + "<p> Non ci sono promo da visualizzare</p>";
+						$("#scheda_promo .slider_next").hide();
+						$("#scheda_promo .slider_prev").hide();
                     }
 
                     $(".slider_promo").append(blocco);
