@@ -113,7 +113,7 @@ Oppure <br /><br />
                     <h1>
                         Contattaci</h1>
                 </div>
-                <form  method="post"  onsubmit="return validateFormInfo();" action="http://www.trovoperte.com/app/formcdosys_generale.asp" id="form_richiestaInfo" name="form_richiestaInfo"><input type="hidden" name="tipologia" value="Richiesta informazioni">
+                <form  method="post"  onsubmit="return validateFormInfo();" action="../formcdosys_generale.asp" id="form_richiestaInfo" name="form_richiestaInfo"><input type="hidden" name="tipologia" value="Richiesta informazioni">
                      <div class="form_left">
                             <input  name="nome" id="txtNomeInfo" type="text" placeholder="Nome" class="required"/>
                         </div >
@@ -156,7 +156,7 @@ Oppure <br /><br />
                         <h1>
                             Richiesta iscrizione</h1>
                     </div>
-                   <form  method="post"  onsubmit="return validateFormRegistrazione();" action="http://www.trovoperte.com/app/formcdosys_generale.asp" id="form_registrazioneAzienda" name="form_registrazioneAzienda" ><input type="hidden" name="tipologia" value="Richiesta registrazione">
+                   <form  method="post"  onsubmit="return validateFormRegistrazione();" action="../formcdosys_generale.asp" id="form_registrazioneAzienda" name="form_registrazioneAzienda" ><input type="hidden" name="tipologia" value="Richiesta registrazione">
                     
                         <div class="form_left">
                             <input  name="nome" id="txtNomeRegistrazione" type="text" placeholder="Nome" class="required"/>
@@ -265,12 +265,23 @@ Oppure <br /><br />
 
             var scheda = "";
             var footer_dettaglio = "";
+			var id_newsPromo = getParameterByName("id_newsPromo");
+            var tipologia_newsPromo = getParameterByName("tipologia");
+			
             $.getJSON("http://www.trovoperte.com/admin/get_json_data_newsPromo.asp?id_newsPromo=" + id_newsPromo + "&tipologia=" + tipologia_newsPromo, function (info_dettaglio) {
 
 
                 $.each(info_dettaglio, function (i, name) {
 
-
+					var meta = "<meta property='og:title' content='"+ name.titolo_newsPromo +"'>";
+					if(name.descrizione_newsPromo != "")
+					meta += "<meta property='og:description' content='"+ name.descrizione_newsPromo +"'>";
+					meta += "<meta property='og:type' content='article'>";
+					meta += "<meta property='og:locale' content='it_IT'>";					
+					meta += "<meta property='og:url' content='www.trovoperte.com/app/page/dettaglio_newsPromo.html?tipologia="+ tipologia_newsPromo + "&id_newsPromo="+id_newsPromo +"'>";
+					meta += "<meta property='og:image' content='http://www.trovoperte.com/public/upload_gallery/immagini/"+ name.icona_newsPromo + "'>";
+					
+					$("head").append(meta);
                     //add the <li> to "li" variable
                     //note the use of += in the variable
                     //meaning I'm adding to the existing data. not replacing it.
