@@ -322,11 +322,24 @@ function prepara_link_areariservata(obj,page){
 	};
 	
 	if( isMobile.any()){
-		if (page == "index")
-			obj.href = "page/login.html";
-		else
-			obj.href = "../page/login.html";
+		var url = encodeURI("http://www.trovoperte.com/admin");
+		
+		if (page == "index") {
+			if (isMobile.iOS()) {
+				
+				window.open(url, '_system','location=yes');
+			} else { 
+				obj.href = "page/login.html";
+			}
+		} else {
+			if (isMobile.iOS()){
+				window.open(url, '_system','location=yes');
+			}else{
+				obj.href = "../page/login.html";
+			}
+		}
 	} else {
 		obj.href = "http://www.trovoperte.com/admin/";
 	}
 }
+
