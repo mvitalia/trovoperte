@@ -14,8 +14,88 @@ $(document).on('vclick', '.large', function(e){
     $(".txtwrapper").css('font-size', '25px');
 });
 
+/*$(document).on("click","#txtAcconsento",function(e){ 
+		
+		if ($("#chkConferma_Richiesta").prop("checked") == true) {
+            $("#chkConferma_Richiesta").prop("checked", false);
+        }
+        else {
+            $("#chkConferma_Richiesta").prop("checked", true);
+        }
+})*/
+
+/*$(document).on("click",".free",function(){
+	if($(".free input").prop("checked")==true){
+			$(".free input").prop("checked",false)
+		}
+		else{
+			$(".free input").prop("checked",true)
+		}	
+})
+
+$(document).on("click",".base",function(){
+	if($(".base input").prop("checked")==true){
+			$(".base input").prop("checked",false)
+		}
+		else{
+			$(".base input").prop("checked",true)
+		}	
+})
+$(document).on("click",".intermedio",function(){
+	if($(".intermedio input").prop("checked")==true){
+			$(".intermedio input").prop("checked",false)
+		}
+		else{
+			$(".intermedio input").prop("checked",true)
+		}	
+})
+$(document).on("click",".avanzato",function(){
+	if($(".avanzato input").prop("checked")==true){
+			$(".avanzato input").prop("checked",false)
+		}
+		else{
+			$(".avanzato input").prop("checked",true)
+		}	
+})
+
+$(document).on("click",".free input",function(){
+	if($(".free input").prop("checked")==true){
+			$(".free input").prop("checked",false)
+		}
+		else{
+			$(".free input").prop("checked",true)
+		}	
+})
+$(document).on("click",".base input",function(){
+	if($(".base input").prop("checked")==true){
+			$(".base input").prop("checked",false)
+		}
+		else{
+			$(".base input").prop("checked",true)
+		}	
+})
+$(document).on("click",".intermedio input",function(){
+	if($(".intermedio input").prop("checked")==true){
+			$(".intermedio input").prop("checked",false)
+		}
+		else{
+			$(".intermedio input").prop("checked",true)
+		}	
+})
+$(document).on("click",".avanzato input",function(){
+	if($(".avanzato input").prop("checked")==true){
+			$(".avanzato input").prop("checked",false)
+		}
+		else{
+			$(".avanzato input").prop("checked",true)
+		}	
+})*/
+
 $(document).ready(function () {
+	
+	
     $("#txtAcconsento").click(function () {
+		
         if ($("#chkConferma_Richiesta").prop("checked") == true) {
             $("#chkConferma_Richiesta").prop("checked", false);
         }
@@ -33,12 +113,107 @@ $(document).ready(function () {
         }
 
     });
+	
+	$(".free").click(function(){
+		if($(".free input").prop("checked")==false){
+			$(".radioAbbonamento input").prop("checked",false)
+			$(".free input").prop("checked",true)
+			
+		}
+		
+	})
+	
+	$(".base").click(function(){
+		if($(".base input").prop("checked")==false){
+			$(".radioAbbonamento input").prop("checked",false)
+			$(".base input").prop("checked",true)
+			
+		}
+		
+	})
+	$(".intermedio").click(function(){
+		if($(".intermedio input").prop("checked")==false){
+			$(".radioAbbonamento input").prop("checked",false)
+			$(".intermedio input").prop("checked",true)
+			
+		}
+		
+	})
+	$(".avanzato").click(function(){		
+			if($(".avanzato input").prop("checked")==false){
+			$(".radioAbbonamento input").prop("checked",false)
+			$(".avanzato input").prop("checked",true)
+			
+		}
+		
+		})
+	
+		
+		$(".free input").click(function(){
+			if($(".free input").prop("checked")==false){
+			$(".radioAbbonamento input").prop("checked",false)
+			$(".free input").prop("checked",true)
+			
+			}
+		
+		})
+		
+		$(".base input").click(function(){
+			if($(".base input").prop("checked")==false){
+			$(".radioAbbonamento input").prop("checked",false)
+			$(".base input").prop("checked",true)
+				
+			}
+			
+			
+		})
+		
+		
+		/*$(".intermedio").click(function(){
+			if($(".intermedio input").prop("checked")==false){
+				$(".intermedio input").prop("checked",true)
+				$(".pAbbonamento").css("font-weight","normal")
+				
+			}			
+		})*/
+		
+		$(".intermedio input").click(function(){
+			if($(".intermedio input").prop("checked")==false){
+			$(".radioAbbonamento input").prop("checked",false)
+			$(".intermedio input").prop("checked",true)
+				
+			}		
+		})
+		
+		
+		
+		/*$(".avanzato").click(function(){
+			if($(".avanzato input").prop("checked")==false){
+				$(".avanzato input").prop("checked",true)
+					$(".pAbbonamento").css("font-weight","normal")
+					
+			}
+			
+		})*/
+		
+		$(".avanzato input").click(function(){
+			if($(".avanzato input").prop("checked")==false){
+				$(".radioAbbonamento input").prop("checked",false)
+				$(avanzato).prop("checked",true)
+				
+			}		
+	
+		})
+	
 
-    $("#page_info").bind({
+		$("#page_info").bind({
         popupafterclose: function (event, ui) { if (page == "registrazione") { $("#page_registrazione").popup("open"); page = ""; } else if (page == "info") { $("#page_richiestaInfo").popup("open"); page = ""; } }
-    });
+		});
+	
+})
+	//$("#lstMacrocategorie").change(function(){alert("cioa")});
 
-});
+
 
 function caricaAllIndustry(elencoMarker,page) {
     var defaultCenter = new google.maps.LatLng(44.7392354, 7.928849);
@@ -115,7 +290,6 @@ function caricaMappa(coordinate,nomeAzienda) {
    
 
     function validateFormRegistrazione() {
-
         var mail_reg_exp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]{2,})+\.)+([a-zA-Z0-9]{2,})+$/;
 
         var moduloControllo = document.forms['form_registrazioneAzienda'];
@@ -128,7 +302,7 @@ function caricaMappa(coordinate,nomeAzienda) {
             alert("Devi completare il campo: Cognome");
             return false;
         }
-        else if (moduloControllo.r_soc.value.length == 0) {
+        else if (moduloControllo.ragione_sociale.value.length == 0) {
             alert("Devi completare il campo: Ragione Sociale");
             return false;
         }
@@ -137,25 +311,25 @@ function caricaMappa(coordinate,nomeAzienda) {
             return false;
         }
 
-        else if (moduloControllo.email.value.length == 0) {
+        else if (moduloControllo.mail.value.length == 0) {
             alert("Devi completare il campo: Mail");
 
             return false;
         }
-        else if (moduloControllo.email.value.length != 0) {
+        else if (moduloControllo.mail.value.length != 0) {
             var corretto;
             var re = new RegExp(mail_reg_exp);
-            corretto=re.test(moduloControllo.email.value);
+            corretto=re.test(moduloControllo.mail.value);
             if (corretto == false) {
                 alert("Devi completare il campo: Mail");
                 return false;               
             }
 
-            else if (moduloControllo.telefono.value.length == 0) {
+            else if (moduloControllo.cell.value.length == 0) {
                 alert("Devi completare il campo: Telefono");
                 return false;
             }
-            else if (moduloControllo.cod_fisc.value.length == 0) {
+            else if (moduloControllo.cod_fiscale.value.length == 0) {
                 alert("Devi completare il campo: Codice fiscale");
                 return false;
             }
@@ -163,18 +337,41 @@ function caricaMappa(coordinate,nomeAzienda) {
                 alert("Devi completare il campo: Indirizzo");
                 return false;
             }
+			 else if (moduloControllo.num.value.length == 0) {
+                alert("Devi completare il campo: n.°");
+                return false;
+            }
             else if (moduloControllo.cap.value.length == 0) {
                 alert("Devi completare il campo: CAP");
                 return false;
             }
-            else if (moduloControllo.citta.value.length == 0) {
+            else if (moduloControllo.paese.value.length == 0) {
                 alert("Devi completare il campo: Città");
                 return false;
             }
-            else if (moduloControllo.indirizzo.value.length == 0) {
-                alert("Devi completare il campo: Indirizzo");
+            else if (moduloControllo.provincia.value.length == 0) {
+                alert("Devi completare il campo: Provincia");
                 return false;
             }
+			
+			 else if (moduloControllo.username.value.length == 0) {
+                alert("Devi completare il campo: Username");
+                return false;
+            }
+			 else if (moduloControllo.password.value.length == 0) {
+                alert("Devi completare il campo: Password");
+                return false;
+            }
+			
+			 else if (moduloControllo.macrocategoria.value == "") {
+                alert("Devi completare il campo: Macrocategoria");
+                return false;
+            }
+			 else if (moduloControllo.categoria.value == "") {
+                alert("Devi completare il campo: Categoria");
+                return false;
+            }
+			
             else if ($("#chkConferma_Richiesta").prop("checked")==false) {
                 alert("Devi completare il campo: Acconsento il trattamento dei dati personali");
                 return false;
@@ -322,24 +519,11 @@ function prepara_link_areariservata(obj,page){
 	};
 	
 	if( isMobile.any()){
-		var url = encodeURI("http://www.trovoperte.com/admin");
-		
-		if (page == "index") {
-			if (isMobile.iOS()) {
-				
-				window.open(url, '_system','location=yes');
-			} else { 
-				obj.href = "page/login.html";
-			}
-		} else {
-			if (isMobile.iOS()){
-				window.open(url, '_system','location=yes');
-			}else{
-				obj.href = "../page/login.html";
-			}
-		}
+		if (page == "index")
+			obj.href = "page/login.html";
+		else
+			obj.href = "../page/login.html";
 	} else {
 		obj.href = "http://www.trovoperte.com/admin/";
 	}
 }
-

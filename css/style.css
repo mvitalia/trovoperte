@@ -747,3 +747,98 @@ html, body {
     }      
 }
 
+.form_left .ui-select, .form_right .ui-select{
+    width:100% !important;
+    margin-right:0   
+    
+  }
+
+.radioAbbonamento .ui-radio input{
+
+  position:relative !important;
+  float:left;
+  margin:0;left:0;
+  margin-right:10px
+
+}
+
+
+
+.radioAbbonamento .ui-radio{
+  margin: 0;
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.free{
+	background-color:#57BA46;
+	clear:both;
+	
+}
+
+.base{
+	background-color:#FDC307;
+}
+
+.intermedio{
+	background-color:#2695C2;
+	
+}
+
+.avanzato{
+	background-color:#DB1D27;
+}
+
+@media(min-width:850px){
+	.radioAbbonamento{
+    height: 33px;
+    line-height: 33px;
+    color: #fff;
+    margin-top: 7.5px;
+    margin-bottom: 7.5px;
+    border-radius: 5px;
+    width: 45%;
+    padding: 0;
+}
+	
+	.free, .avanzato{
+		margin-right:10px;
+	}
+	
+	.base, .intermedio{
+		margin-lefT:10px;
+	}
+	
+}
+
+@media(max-width:849px){
+	.radioAbbonamento{
+   height: 33px;
+    line-height: 33px;
+    color: #fff;
+    margin-top: 7.5px;
+    margin-bottom: 7.5px;
+    border-radius: 5px;
+	margin-left: 10px;
+   
+    margin-right: 10px;
+   
+	}	
+}
+
+@media(min-width:650px){
+	#registrazione .ui-content{
+		width: 65%;
+		margin: 0 auto;
+	}	
+}
+
+@media(mx-width:649px){
+	#registrazione .ui-content{
+		width: 80%;
+		margin: 0 auto;
+	}
+}
