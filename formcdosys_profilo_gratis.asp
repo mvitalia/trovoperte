@@ -8,12 +8,8 @@ DIM corpoMessaggio, numeroCampi, invioA, invioDa, nomeDominio, indirizzoIp, modu
 	'* voce da modificare con il proprio indirizzo email
 	
 
-invioA =  "info@trovoperte.com"
-
-invioDa =  Request.Form("mail")
-if invioDa = "" then
-	invioDa = "info@trovoperte.com"
-end if
+'invioA =  "p.guglielmo@mvitalia.com"
+invioA =  "a.nota@mvitalia.com"
 
 ' SALVATTAGGIO IN DB
 dim connessione 
@@ -112,6 +108,8 @@ set cn=nothing
 ' INVIO MAIL
 
 		
+invioDa =  Request.Form("mail")
+if Request.Form("check_send") = "" then
 
 
 	'------------fine modifiche necessarie------------------
@@ -173,7 +171,7 @@ set cn=nothing
 	Set Flds2 = iConf2.Fields
 	
 	Flds2(cdoSendUsingMethod) = cdoSendUsingPort
-	Flds2(cdoSMTPServer) = "smtp.trovoperte.com" 
+	Flds2(cdoSMTPServer) = "smtp.mvitalia.com" 
 	Flds2(cdoSMTPServerPort) = 25
 	Flds2(cdoSMTPAuthenticate) = cdoAnonymous ' 0
 	Flds2.Update
@@ -193,6 +191,7 @@ set cn=nothing
 	Set Flds2 = Nothing
 	Set iConf2 = Nothing
 	'response.redirect("trovo_per_te_profilo_gratis_ok.html")
+end if
 %>
 <html>
 <head>

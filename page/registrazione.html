@@ -101,8 +101,7 @@
                 <a href='#page_richiestaInfo' data-icon='mail' data-rel='popup' data-position-to='window'
                     data-transition='pop' class='btn_search sideOption ui-btn  ui-btn-inline ui-icon-mail ui-btn-icon-left'>
                     Contattaci</a>
-                 <a href='#page_registrazione' data-icon='plus' data-rel='popup' data-position-to='window'
-                    data-transition='pop' class='btn_search sideOption ui-btn  ui-btn-inline ui-icon-plus ui-btn-icon-left'>
+                 <a href='registrazione.html' data-ajax="false" data-icon='plus' class='btn_search sideOption ui-btn  ui-btn-inline ui-icon-plus ui-btn-icon-left'>
                     Richiesta iscrizione</a>
                     
                     <a href="#" onClick="prepara_link_areariservata(this)" class="btn_search sideOption ui-btn  ui-btn-inline ui-icon-lock ui-btn-icon-left" data-role="button" data-icon="lock" data-ajax="false">Area riservata</a>
@@ -272,7 +271,7 @@ Oppure <br /><br />
                 </div>
                 <div data-role="content">
                     <form  method="post" onSubmit="return validateFormRegistrazione();" action="http://www.trovoperte.com/app/formcdosys_profilo_gratis.asp" id="form_registrazioneAzienda" name="form_registra" >
-                    	<input type="hidden" name="tipologia" value="Richiesta registrazione">
+                    	
                         <div class="form_left">
                             <input  name="nome" id="txtNomeRegistrazione" type="text" placeholder="Nome" class="required"/>
                         </div >
@@ -304,8 +303,8 @@ Oppure <br /><br />
                         <div class="form_right"><select  class="select"  name="categoria" id="lstCategorie"><option value="" disabled selected >Categoria</option></select></div>
 						
 						 
-						<div class="form_right radioAbbonamento free"><input name="tipoAbbonamento" checked="true" type="radio" value="free">Free</div>
-						<div class="form_left radioAbbonamento base"><input name="tipoAbbonamento" type="radio" value="base">Base 50&euro;</div>
+						<div class="form_left radioAbbonamento free"><input name="tipoAbbonamento" checked="true" type="radio" value="free">Free</div>
+						<div class="form_right radioAbbonamento base"><input name="tipoAbbonamento" type="radio" value="base">Base 50&euro;</div>
 						<div class="form_left radioAbbonamento intermedio"><input name="tipoAbbonamento" type="radio" value="intermedio">Intermedio 80&euro;</div>
 						<div class="form_right radioAbbonamento avanzato"><input name="tipoAbbonamento" type="radio" value="avanzato">Avanzato 150&euro;</div>
 						
@@ -322,11 +321,12 @@ Oppure <br /><br />
                             DEI DATI PERSONALI</p>
                         <br />
                         
-                        
+                        <input type="hidden" name="tipologia" value="Richiesta registrazione">
                        <div style="padding:0 10px 0 10px;"> <input type="checkbox"  name="conferma" class="required" id="chkConferma_Richiesta" />
                         <label style="text-indent:35px;" id="txtAcconsento">
                             Acconsento il trattamento dei dati personali</label></div>
                             <div style="clear:both;" id="btnInvioRegistrazione">
+                            <input type="text" value="" name="check_send" style="display:none;" >  
                                  <input type="submit" id="Invia_Registrazione" value="Invia Richiesta" name="invia" />
                            </div>
                     </form>
